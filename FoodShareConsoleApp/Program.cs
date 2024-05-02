@@ -1,4 +1,9 @@
-﻿interface IMenuState
+﻿using Spectre.Console;
+using System.Drawing;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
+interface IMenuState
 {
     public void HandleOutput(MenuContext context);
 }
@@ -24,22 +29,29 @@ class MenuContext
     }
 }
 
+
 class InitialMenuState : IMenuState
 {
     public void HandleOutput(MenuContext context)
     {
         try
         {
-            Console.WriteLine("Sharefood: Aplikasi Mengurangi Indeks Kelaparan");
-            Console.WriteLine("1. Tambah Makanan");
-            Console.WriteLine("2. Edit Makanan");
-            Console.WriteLine("3. Hapus Makanan");
-            Console.WriteLine("4. Keluar");
-            Console.WriteLine();
-            Console.Write("Silahkan inputkan kode menu: ");
+            AnsiConsole.Write(new Markup("[bold green1]Sharefood:[/] Aplikasi mengurangi indeks kelaparan di indonesia!"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.Write(new Markup("1. Tambah makanan"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.Write(new Markup("2. Edit makanan"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.Write(new Markup("3. Hapus makanan"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.Write(new Markup("0. Keluar makanan"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.WriteLine();
 
             // Get input code from user
-            int inputCode = int.Parse(Console.ReadLine());
+            int inputCode = ConsoleUtils.Ask<int>("Silahkan inputkan kode menu!", "Numeric");
+
+            Console.Clear();
 
             if (inputCode == 0)
             {
@@ -62,15 +74,107 @@ class InitialMenuState : IMenuState
     }
 }
 
+class ConsoleUtils
+{
+    public static T Ask<T>(String text, String type)
+    {
+        AnsiConsole.Write(new Rule($"[yellow]{type}[/]").RuleStyle("grey").LeftJustified());
+        T answer = AnsiConsole.Prompt(
+                        new TextPrompt<T>(text)
+                            .PromptStyle("green")
+                    );
+        AnsiConsole.WriteLine();
+
+        return answer;
+    }
+
+    public static T AskValidation<T>(String text, String type, Func<T, bool> Validation, String errorMessage)
+    {
+        AnsiConsole.Write(new Rule($"[yellow]{type}[/]").RuleStyle("grey").LeftJustified());
+        T answer = AnsiConsole.Prompt(
+                    new TextPrompt<T>(text)
+                        .PromptStyle("green")
+                        .ValidationErrorMessage("[red]That's not a valid age[/]")
+                        .Validate(value =>
+                        {
+                            if(!Validation(value))
+                            {
+                                AnsiConsole.WriteLine();
+                                return ValidationResult.Error($"[red]{errorMessage}[/]");
+                            }
+
+                            return ValidationResult.Success();
+                        }));
+        AnsiConsole.WriteLine();
+        return answer;
+    }
+
+    public static T AskSelection<T>(String text, String type, T[] choices)
+    {
+        AnsiConsole.Write(new Rule($"[yellow]{type}[/]").RuleStyle("grey").LeftJustified());
+        T answer = AnsiConsole.Prompt(
+                    new SelectionPrompt<T>()
+                        .Title(text)
+                        .PageSize(choices.Length)
+                        .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+                        .AddChoices(choices));
+        AnsiConsole.WriteLine();
+
+        return answer;
+    }
+}
+
 class CreateFoodMenuState : IMenuState
 {
     public void HandleOutput(MenuContext context)
     {
-        Console.WriteLine("Masukan Nama: ");
-        String name = Console.ReadLine();
-        Console.WriteLine("Expire: ");
-        String expire = Console.ReadLine();
-        Console.WriteLine("Quantity: ");
+        bool isQuestioning = true;
+
+        while(isQuestioning)
+        {
+            AnsiConsole.Write(new Table().AddColumns("[grey]Form Pendaftaran Data Makanan[/]")
+                .RoundedBorder()
+                .BorderColor(Spectre.Console.Color.Green1));
+
+            String name = ConsoleUtils.Ask<String>("Masukan nama makanan?", "String");
+            String description = ConsoleUtils.Ask<String>("Masukan deskripsi makanan?", "String");
+            String expire = ConsoleUtils.AskValidation<String>("Masukan tanggal kadaluarsa? [yellow](ex. 30-01-2003)[/]", "String",
+                value =>
+                {
+                    return true;
+                },
+                "Format tanggal tidak valid!");
+
+            int amount = ConsoleUtils.Ask<int>("Masukan jumlah makanan?", "Integer");
+
+            String condition = ConsoleUtils.AskSelection<String>("Masukan kondisi makanan?", "Choices", new String[] { "Baik", "Cukup", "Buruk" });
+            String source = ConsoleUtils.AskSelection<String>("Masukan sumber makanan?", "Choices", new String[] { "Restoran", "Kafe", "Minimarket", "Toko Kelontong", "Pasar", "Hotel", "Katering", "Kantin", "Toko Roti / Kue" });
+            String category = ConsoleUtils.AskSelection<String>("Masukan kategori makanan?", "Choices", new String[] { "Daging", "Ayam", "Ikan / Produk Laut", "Sayuran", "Buah Buahan", "Biji Bijian", "Susu", "Roti / Kue", "Cemilan", "Siap Saji" });
+
+            AnsiConsole.Clear();
+
+            AnsiConsole.Write(new Table().AddColumns("[grey]Pertanyaan[/]", "[grey]Jawaban[/]")
+                    .RoundedBorder()
+                    .BorderColor(Spectre.Console.Color.Grey)
+                    .AddRow("[grey]Nama[/]", name)
+                    .AddRow("[grey]Deskripsi[/]", description)
+                    .AddRow("[grey]Kadaluarsa[/]", expire)
+                    .AddRow("[grey]Jumlah[/]", amount.ToString())
+                    .AddRow("[grey]Kondisi[/]", condition)
+                    .AddRow("[grey]Sumber Makanan[/]", source)
+                    .AddRow("[grey]Kategori[/]", category));
+
+            AnsiConsole.WriteLine();
+            if (AnsiConsole.Confirm("Apakah data yang anda inputkan adalah benar?"))
+            {
+                AnsiConsole.MarkupLine("Ok... :(");
+                break;
+            }
+
+            AnsiConsole.Clear();
+        }
+
+        context.ChangeState(new InitialMenuState());
     }
 }
 
@@ -87,6 +191,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        
         try
         {
             // Initialize State Machine / Context
