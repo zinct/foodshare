@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShare", "FoodShare\FoodShare.csproj", "{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShareConsoleApp", "FoodShareConsoleApp\FoodShareConsoleApp.csproj", "{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShareUnitTesting", "FoodShareUnitTesting\FoodShareUnitTesting.csproj", "{B764F672-B820-4856-B8EA-8E2B471B9D8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B764F672-B820-4856-B8EA-8E2B471B9D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B764F672-B820-4856-B8EA-8E2B471B9D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B764F672-B820-4856-B8EA-8E2B471B9D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B764F672-B820-4856-B8EA-8E2B471B9D8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
