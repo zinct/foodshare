@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Utility;
 
 namespace FoodShare.Controllers
 {
@@ -11,38 +12,44 @@ namespace FoodShare.Controllers
         //};
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         private static List<Makanan> MakananList = new List<Makanan> {
-            new Makanan(1, "ayam",10,2020, 8, 12),
-            new Makanan(2, "ayam",14,2020, 11, 2),
-            new Makanan(3, "ayam",4,2020, 8, 12),
-            new Makanan(4, "ayam", 7, 2020, 8, 12),
-            new Makanan(5, "ayam", 9, 2020, 8, 12)
+            new Makanan(0, "ayam",10,2020, 8, 12),
+            new Makanan(1, "sapi",14,2020, 11, 2),
+            new Makanan(2, "kodok",4,2020, 8, 12),
+            new Makanan(3, "kuda", 7, 2020, 8, 12),
+            new Makanan(4, "kelinci", 9, 2020, 8, 12)
         };
 
         [HttpGet]
         public IEnumerable<Makanan> Get()
         {
-            return MakananList;
+            return ListUtilities.Read<Makanan>(MakananList).ToList();
         }
-
 
         [HttpGet("{id}")]
         public Makanan Get(int id)
         {
-            return MakananList[id];
+            return ListUtilities.ReadByID<Makanan>(MakananList, id);
         }
 
         [HttpPost]
         public ActionResult Post([FromBody] Makanan makanan)
         {
-            MakananList.Add(makanan);
-            return CreatedAtAction(nameof(Get), new { id = MakananList.IndexOf(makanan) }, makanan);
+            ListUtilities.Create<Makanan>(MakananList, makanan);
+            return Ok("Makanan berhasil ditambahkan");
         }
 
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            MakananList.RemoveAt(id);
-            return NoContent();
+            if (id > MakananList.Count())
+            {
+                return NotFound("Makanan tidak ditemukan");
+            }
+            else
+            {
+                ListUtilities.Delete<Makanan>(MakananList, id);
+                return Ok("Makanan berhasil dihapus");
+            }
         }
     }
 }
