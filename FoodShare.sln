@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShare", "FoodShare\FoodShare.csproj", "{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShareAPI", "FoodShareAPI\FoodShareAPI.csproj", "{27023D14-E37B-4089-98A9-5107693385FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27023D14-E37B-4089-98A9-5107693385FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27023D14-E37B-4089-98A9-5107693385FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27023D14-E37B-4089-98A9-5107693385FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27023D14-E37B-4089-98A9-5107693385FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
