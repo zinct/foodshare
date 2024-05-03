@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodShareAPI.Models;
+using FoodShareCore.Utilities;
 
 namespace FoodShareAPI.Controllers
 {
@@ -18,7 +19,7 @@ namespace FoodShareAPI.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -28,19 +29,33 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                return foodList[id];
+                return ListUtilities.ReadByID<Food>(foodList, id);
             }
             catch (Exception e)
             {
-                return StatusCode(500);
+                // Catch ArgumentOutOfRangeException exception
+                if (e is ArgumentOutOfRangeException)
+                {
+                    return NotFound();
+                }
+
+                return StatusCode(500, e.Message);
             }
         }
 
         [HttpPost]
         public ActionResult Store(Food food)
         {
-            foodList.Add(food);
-            return NoContent();
+            try
+            {
+                ListUtilities.Create<Food>(foodList, food);
+                return NoContent();
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+            
         }
 
         [HttpDelete("{id}")]
@@ -48,13 +63,18 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                foodList.RemoveAt(id);
+                ListUtilities.Delete<Food>(foodList, id);
                 return NoContent();
             }
             catch (Exception e)
             {
-                
-                return StatusCode(500);
+                // Catch ArgumentOutOfRangeException exception
+                if (e is ArgumentOutOfRangeException)
+                {
+                    return NotFound();
+                }
+
+                return StatusCode(500, e.Message);
             }
             
         }

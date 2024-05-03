@@ -22,4 +22,7 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodShareCore\FoodShareCore.csproj" />
+  </ItemGroup>
 </Project>

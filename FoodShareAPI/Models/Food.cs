@@ -22,11 +22,6 @@ namespace FoodShareAPI.Models
             Category = category;
             Quantity = quantity;
 
-            Today();
-        }
-
-        private void Today()
-        {
             CreatedAt = DateTime.Now;
         }
     }
