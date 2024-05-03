@@ -14,19 +14,19 @@ namespace Utility
             return collection;
         }
 
-        public static List<T> Delete<T>(List<T> collection, int idx)
+        public static List<T> Delete<T>(List<T> collection, int id)
         {
-            collection.Remove(collection[idx]);
+            collection.Remove(collection[id]);
             return collection;
         }
 
-        public static List<T> Update<T>(List<T> collection, T data, int index)
+        public static List<T> Update<T>(List<T> collection, T data, int id)
         {
-            collection[index] = data;
+            collection[id] = data;
             return collection;
         }
 
-        public static IEnumerable<T> Read<T>(List<T> collection)
+        public static List<T> Read<T>(List<T> collection)
         {
             return collection;
         }
@@ -34,6 +34,15 @@ namespace Utility
         public static T ReadByID<T>(List<T> collection, int id)
         {
             return collection[id];
+        }
+
+        public static bool SearchList<T>(List<T> collection, T target)
+        {
+            foreach (T item in collection)
+            {
+                if (ReferenceEquals(item, target)) return true;
+            }
+            return false;
         }
     }
 }
