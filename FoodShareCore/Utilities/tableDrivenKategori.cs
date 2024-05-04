@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FoodShareCore.Utilities
 {
-    internal class tableDrivenKategori
+    public class tableDrivenKategori
     {
-         enum Kategori
+         public enum Kategori
         {
             Daging = 1,
             Ayam = 2,
@@ -23,14 +23,14 @@ namespace FoodShareCore.Utilities
             Instan = 10
         }
 
-        private static readonly Dictionary<string, Kategori> kategori = new Dictionary<string, Kategori>
+        public static readonly Dictionary<string, Kategori> kategori = new Dictionary<string, Kategori>
         {
             {"Daging", Kategori.Daging},
             {"Ayam",Kategori.Ayam},
             {"Ikan / Produk laut", Kategori.Ikan},
             {"Sayuran", Kategori.Sayuran},
             {"Buah", Kategori.Buah},
-            {"BIji=bijian",Kategori.Perbijian},
+            {"Biji-bijian",Kategori.Perbijian},
             {"Susu", Kategori.Susu},
             {"Roti / Kue", Kategori.RotiKue},
             {"Cemilan", Kategori.Cemilan},

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FoodShareCore.Utilities
 {
-    internal class tabledrivenSumber
+    public class tabledrivenSumber
     {
-        enum Sumber
+       public enum Sumber
         {
             Restoran = 1,
             Kafe = 2,
@@ -21,12 +21,12 @@ namespace FoodShareCore.Utilities
             Tokoroti = 9
         }
 
-        private static readonly Dictionary<string, Sumber> sumber = new Dictionary<string, Sumber>
+        public static readonly Dictionary<string, Sumber> sumber = new Dictionary<string, Sumber>
         {
             {"Restoran", Sumber.Restoran},
             {"Kafe", Sumber.Kafe},
             {"Minimarket", Sumber.Minimarket},
-            {"Toko Kelontong", Sumber.Restoran},
+            {"Toko Kelontong", Sumber.Toko},
             {"Pasar", Sumber.Pasar},
             {"Hotel", Sumber.Hotel},
             {"Katering", Sumber.Katering},
@@ -35,7 +35,7 @@ namespace FoodShareCore.Utilities
         };
 
 
-        public static Sumber GetSumber(string namaTempat)
+        public static Sumber Getsumber(string namaTempat)
         {
             return sumber[namaTempat];
         }
