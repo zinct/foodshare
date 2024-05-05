@@ -5,7 +5,7 @@ using FoodShareCore.Utilities;
 namespace FoodShareAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FoodController : ControllerBase
     {
         public static List<Food> foodList = new List<Food>();
@@ -55,7 +55,6 @@ namespace FoodShareAPI.Controllers
             {
                 return StatusCode(500, e.Message);
             }
-            
         }
 
         [HttpDelete("{id}")]
