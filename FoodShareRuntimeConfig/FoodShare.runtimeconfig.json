@@ -1,0 +1,8 @@
+{
+   "apiPort": 5276,
+   "status": "Development",
+   "appName": "Food Share",
+   "appVersion": "0.1",
+   "maxTitleLength": 50,
+   "descTitleLength":  200
+}
