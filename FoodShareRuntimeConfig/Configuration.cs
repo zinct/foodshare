@@ -7,7 +7,7 @@ namespace FoodShareRuntimeConfig
 {
 	public class Configuration()
 	{
-        public int ApiPort { get; set; }
+        public string ApiURL { get; set; }
         public string Status { get; set; }
         public string AppName { get; set; }
         public string AppVersion { get; set; }
@@ -17,9 +17,9 @@ namespace FoodShareRuntimeConfig
     
     public Configuration() { }
 
-    public Config(int ApiPort, string Status, string AppName, string AppVersion, int maxTitleLength, int descTitleLength)
+    public Config(string ApiURL, string Status, string AppName, string AppVersion, int maxTitleLength, int descTitleLength)
     {
-        ApiPort = APIPort;
+        ApiURL = APIUrl;
         Status = status;
         AppName = name;
         AppVersion = version;
@@ -30,8 +30,8 @@ namespace FoodShareRuntimeConfig
     public class FoodShareConfig
     {
         public Configuration config { get; set; }
-        public string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-        public string configFileName = "D:\\TELKOM\\SEMESTER 4\\TUBES KPL\\foodshare\\FoodShareRuntimeConfig\\FoodShare.runtimeconfig.json";
+        public string path = Directory.GetCurrentDirectory();
+        public string configFileName = "FoodShare.runtimeconfig.json";
 
         public FoodShareConfig()
         {
@@ -67,10 +67,10 @@ namespace FoodShareRuntimeConfig
             File.WriteAllText(fullPath, jsonString);
         }
 
-        // Deklarasi nilai Default-nya dari CovidConfig
+        // Deklarasi nilai Default-nya dari FoodShareConfig
         public void SetDefault()
         {
-            config = new Configuration(5276, "Development", "Food Share", "0.1", 50, 200);
+            config = new Configuration("\"http://localhost:5276/api\"", "Development", "Food Share", "0.1", 50, 200);
         }
     }  
 }

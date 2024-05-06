@@ -1,8 +1,8 @@
 {
-   "apiPort": 5276,
-   "status": "Development",
-   "appName": "Food Share",
-   "appVersion": "0.1",
-   "maxTitleLength": 50,
-   "descTitleLength":  200
+  "apiUrl": "http://localhost:5276/api",
+  "status": "Development",
+  "appName": "Food Share",
+  "appVersion": "0.1",
+  "descTitleLength": 100,
+  "maxTitleLength ": 50
 }
