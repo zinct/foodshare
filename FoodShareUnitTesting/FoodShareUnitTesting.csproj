@@ -10,10 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="kategoriTesting.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodShareCore\FoodShareCore.csproj" />
   </ItemGroup>
 
 </Project>
