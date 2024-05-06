@@ -1,0 +1,8 @@
+{
+  "apiUrl": "http://localhost:5276/api",
+  "status": "Development",
+  "appName": "Food Share",
+  "appVersion": "0.1",
+  "descTitleLength": 100,
+  "maxTitleLength ": 50
+}
