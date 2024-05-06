@@ -61,7 +61,7 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                ListUtilities.Create<Food>(foodList, food);
+                foodList = ListUtilities.Create<Food>(foodList, food);
                 return NoContent();
             }
             catch(Exception e)
@@ -89,6 +89,26 @@ namespace FoodShareAPI.Controllers
                 return StatusCode(500, e.Message);
             }
             
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Food> Update(int id, Food data)
+        {
+            try
+            {
+                foodList = ListUtilities.Update<Food>(foodList, data, id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                // Catch ArgumentOutOfRangeException exception
+                if (e is ArgumentOutOfRangeException)
+                {
+                    return NotFound();
+                }
+
+                return StatusCode(500, e.Message);
+            }
         }
     }
 }
