@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FoodShareAPI\FoodShareAPI.csproj" />
     <ProjectReference Include="..\FoodShareCore\FoodShareCore.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,6 @@
-﻿namespace FoodShareCore.Utilities
+﻿using System.Diagnostics;
+
+namespace FoodShareCore.Utilities
 {
     public class DateUtilitites
     {
@@ -21,6 +23,7 @@
         //input 2069-02-02
         public static bool ValidateDateInput(String date)
         {
+            Debug.Assert(date != null, "Date tidak boleh kosong");
             try
             {
                 if (date.Length > 10) return false;
