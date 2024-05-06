@@ -1,15 +1,20 @@
-﻿using System.Net.Http.Json;
+﻿using FoodShareCore.Configuration;
+using System.Net.Http.Json;
 
 namespace FoodShareCore.API
 {
     public class ClientAPI
     {
         private HttpClient client = new HttpClient();
+        private AppConfiguration appConfiguration;
         private String address;
 
         public ClientAPI()
         {
-            address = "http://localhost:5276/api";
+            appConfiguration = new AppConfiguration();
+            AppConfiguration.AppConfigurationData data = appConfiguration.ReadConfig();
+
+            address = data.ApiUrl ?? "";
         }
 
         public Task<HttpResponseMessage> Get(String path) => client.GetAsync(address + path);

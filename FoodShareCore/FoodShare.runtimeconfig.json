@@ -1,0 +1,5 @@
+{
+  "ApiUrl": "http://localhost:5276/api",
+  "AppVersion": "1.0.0",
+  "AppName": "FoodShare"
+}
