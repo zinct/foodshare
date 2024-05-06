@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace FoodShareConsoleApp.FSM.States.Menu
 {
-    class DeleteFoodMenu : IMenuState
+    class DeleteFoodMenuState : IMenuState
     {
         private ClientAPI api;
 
-        public DeleteFoodMenu() {
+        public DeleteFoodMenuState() {
             api = new ClientAPI();
         }
 
