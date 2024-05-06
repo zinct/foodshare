@@ -65,14 +65,7 @@ namespace FoodShareConsoleApp.FSM.Contexts
 
         public async Task ActiveTrigger(MenuTrigger trigger)
         {
-            Console.WriteLine("State LOG From: " + currentState.ToString());
-
             currentState = GetNextState(currentState, trigger);
-            
-            Console.WriteLine("State LOG To: " + currentState.ToString());
-            Console.WriteLine();
-            Console.WriteLine();
-
             await currentState.HandleOutput(this);
         }
 

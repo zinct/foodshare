@@ -92,7 +92,7 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Food> Update(int id, Food data)
+        public ActionResult Update(int id, Food data)
         {
             try
             {
