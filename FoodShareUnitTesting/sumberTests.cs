@@ -1,10 +1,4 @@
 ﻿using FoodShareCore.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FoodShareCore.Utilities;
 using static FoodShareCore.Utilities.tabledrivenSumber;
 
 namespace FoodShareUnitTesting
@@ -18,7 +12,6 @@ namespace FoodShareUnitTesting
             string namaSumber = "Restoran";
             Sumber value = tabledrivenSumber.Getsumber(namaSumber);
             Assert.AreEqual(Sumber.Restoran, value);
-
         }
 
         [TestMethod]
@@ -57,7 +50,6 @@ namespace FoodShareUnitTesting
             string namaSumber = "Pasar";
             Sumber value = tabledrivenSumber.Getsumber(namaSumber);
             Assert.AreEqual(Sumber.Pasar, value);
-
         }
 
 
@@ -96,7 +88,6 @@ namespace FoodShareUnitTesting
             string namaSumber = "Toko roti / kue";
             Sumber value = tabledrivenSumber.Getsumber(namaSumber);
             Assert.AreEqual(Sumber.Tokoroti, value);
-
         }
     }
 }
