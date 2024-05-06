@@ -23,7 +23,7 @@ namespace FoodShareCore.Utilities
         //input 2069-02-02
         public static bool ValidateDateInput(String date)
         {
-            Debug.Assert(date != null, "Date tidak boleh kosong");
+            Debug.Assert(date != null, "Date tidak boleh null");
             try
             {
                 if (date.Length > 10) return false;
