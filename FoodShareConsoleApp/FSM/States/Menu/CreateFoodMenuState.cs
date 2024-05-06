@@ -3,6 +3,7 @@ using FoodShareConsoleApp.Entities.Request;
 using FoodShareCore.API;
 using Spectre.Console;
 using FoodShareConsoleApp.FSM.Contexts;
+using FoodShareCore.Utilities;
 
 namespace FoodShareConsoleApp.FSM.States.Menu
 {
@@ -22,11 +23,7 @@ namespace FoodShareConsoleApp.FSM.States.Menu
 
                     String name = ConsoleUtils.Ask<String>("Masukan nama makanan?", "String");
                     String description = ConsoleUtils.Ask<String>("Masukan deskripsi makanan?", "String");
-                    String expire = ConsoleUtils.AskValidation<String>("Masukan tanggal kadaluarsa? [yellow](ex. 2003-01-01)[/]", "String",
-                        value =>
-                        {
-                            return true;
-                        },
+                    String expire = ConsoleUtils.AskValidation<String>("Masukan tanggal kadaluarsa? [yellow](ex. 2003-01-01)[/]", "String", DateUtilitites.ValidateDateInput,
                         "Format tanggal tidak valid!");
 
                     int amount = ConsoleUtils.Ask<int>("Masukan jumlah makanan?", "Integer");

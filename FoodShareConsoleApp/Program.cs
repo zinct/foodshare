@@ -19,7 +19,6 @@ internal class Program
         {
             Console.WriteLine("Somethin went wrong {0}", e.Message);
         }
-        
     }
 }
 

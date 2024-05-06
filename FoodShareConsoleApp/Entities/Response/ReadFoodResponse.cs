@@ -8,6 +8,7 @@ namespace FoodShareConsoleApp.Entities.Response
 {
     public class ReadFoodResponse
     {
+        public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateOnly Expire { get; set; }
         public string Name { get; set; }

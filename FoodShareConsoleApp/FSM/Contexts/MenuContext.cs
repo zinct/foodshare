@@ -10,6 +10,7 @@ namespace FoodShareConsoleApp.FSM.Contexts
         CreateMenu,
         EditMenu,
         ShowMenu,
+        DeleteMenu,
         Back,
     }
 
@@ -41,6 +42,8 @@ namespace FoodShareConsoleApp.FSM.Contexts
             new Transition(new InitialMenuState(), new CreateFoodMenuState(), MenuTrigger.CreateMenu),
             new Transition(new CreateFoodMenuState(), new InitialMenuState(), MenuTrigger.Back),
             new Transition(new InitialMenuState(), new ExitMenuState(), MenuTrigger.Back),
+            new Transition(new InitialMenuState(), new DeleteFoodMenu(), MenuTrigger.DeleteMenu),
+            new Transition(new DeleteFoodMenu(), new InitialMenuState(), MenuTrigger.Back),
         };
 
         public IMenuState GetNextState(IMenuState currentState, MenuTrigger trigger)

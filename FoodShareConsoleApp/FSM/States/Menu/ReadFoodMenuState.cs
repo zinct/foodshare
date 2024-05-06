@@ -5,12 +5,13 @@ using FoodShareCore.API;
 using FoodShareConsoleApp.Entities.Response;
 using Newtonsoft.Json;
 using FoodShareCore.Utilities;
+using System.Linq;
 
 namespace FoodShareConsoleApp.FSM.States.Menu
 {
     class ReadFoodMenuState : IMenuState
     {
-        public async Task HandleOutput(MenuContext context)
+        public async Task ShowFoodTable()
         {
             var table = new Table().Centered();
 
@@ -31,7 +32,7 @@ namespace FoodShareConsoleApp.FSM.States.Menu
                     ClientAPI api = new ClientAPI();
                     HttpResponseMessage response = await api.Get("/food");
 
-                    if(!response.IsSuccessStatusCode)
+                    if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception("Terjadi kesalahan ketika melakukan request ke API");
                     }
@@ -41,6 +42,7 @@ namespace FoodShareConsoleApp.FSM.States.Menu
 
 
                     // Columns
+                    Update(70, () => table.AddColumn("ID"));
                     Update(70, () => table.AddColumn("Tanggal Dibuat"));
                     Update(70, () => table.AddColumn("Nama"));
                     Update(70, () => table.AddColumn("Deskripsi"));
@@ -50,18 +52,20 @@ namespace FoodShareConsoleApp.FSM.States.Menu
                     Update(70, () => table.AddColumn("Kuantitas"));
 
                     // Rows
-                    foreach(ReadFoodResponse food in foods)
+                    foreach (ReadFoodResponse food in foods)
                     {
-                        Update(70, () => table.AddRow(DateUtilitites.ConvertDateOnlyToString(DateOnly.FromDateTime(food.CreatedAt)), food.Name, food.Description, $"[green]{food.Condition}[/]", $"[blue]{food.Source}[/]", food.Category, food.Quantity.ToString()));
+                        Update(70, () => table.AddRow(food.Id.ToString(), DateUtilitites.ConvertDateOnlyToString(DateOnly.FromDateTime(food.CreatedAt)), food.Name, food.Description, $"[green]{food.Condition}[/]", $"[blue]{food.Source}[/]", food.Category, food.Quantity.ToString()));
                     }
 
                     // Column aligment
                     Update(400, () => table.Columns[6].RightAligned());
 
                     // Column footer
-                    Update(400, () => table.Columns[6].Footer("20"));
+                    Update(400, () => table.Columns[0].Footer("Total"));
+                    Update(400, () => table.Columns[7].Footer(foods.Sum(food => food.Quantity).ToString()));
 
                     // Column titles
+                    Update(70, () => table.Columns[0].Header("[bold]ID[/]"));
                     Update(70, () => table.Columns[0].Header("[bold]Tanggal Dibuat[/]"));
                     Update(70, () => table.Columns[1].Header("[bold]Nama[/]"));
                     Update(70, () => table.Columns[2].Header("[bold]Deskripsi[/]"));
@@ -83,8 +87,12 @@ namespace FoodShareConsoleApp.FSM.States.Menu
                     // Caption
                     Update(400, () => table.Caption("[[ [blue]THE END[/] ]]"));
                 });
+        }
 
-            
+        public async Task HandleOutput(MenuContext context)
+        {
+            await ShowFoodTable();
+
             AnsiConsole.MarkupLine("Press [yellow]Enter[/] to exit... ");
             Console.Read();
 

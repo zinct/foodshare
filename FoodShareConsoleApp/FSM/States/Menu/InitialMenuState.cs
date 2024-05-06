@@ -42,6 +42,14 @@ namespace FoodShareConsoleApp.FSM.States.Menu
                 {
                     await context.ActiveTrigger(MenuTrigger.CreateMenu);
                 }
+                else if (inputCode == 3)
+                {
+                    await context.ActiveTrigger(MenuTrigger.EditMenu);
+                }
+                else if (inputCode == 4)
+                {
+                    await context.ActiveTrigger(MenuTrigger.DeleteMenu);
+                }
             }
             catch (Exception e)
             {

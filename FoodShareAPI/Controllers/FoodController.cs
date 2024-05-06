@@ -11,11 +11,24 @@ namespace FoodShareAPI.Controllers
         public static List<Food> foodList = new List<Food>();
 
         [HttpGet]
-        public ActionResult<IEnumerable<Food>> Get()
+        public ActionResult<IEnumerable<object>> Get()
         {
             try
             {
-                return foodList;
+                List<object> mappedFoodList = foodList.Select((food, index) => new
+                {
+                    id = index,
+                    createdAt = food.CreatedAt,
+                    expire = food.Expire.ToString("yyyy-MM-dd"),
+                    name = food.Name,
+                    description = food.Description,
+                    condition = food.Condition,
+                    source = food.Source,
+                    category = food.Category,
+                    quantity = food.Quantity
+                }).ToList<object>();
+
+                return mappedFoodList;
             }
             catch (Exception e)
             {
