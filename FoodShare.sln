@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodShare", "FoodShare\FoodShare.csproj", "{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodShareConsoleApp", "FoodShareConsoleApp\FoodShareConsoleApp.csproj", "{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodShareUnitTesting", "FoodShareUnitTesting\FoodShareUnitTesting.csproj", "{B764F672-B820-4856-B8EA-8E2B471B9D8C}"
@@ -13,18 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodShareAPI", "FoodShareAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodShareCore", "FoodShareCore\FoodShareCore.csproj", "{AB8B0B1A-A53D-41BB-8B11-83D79BA52EF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodshareRuntimeConfiguration", "FoodshareRuntimeConfiguration\FoodshareRuntimeConfiguration.csproj", "{73DA09D6-A917-46D0-89D3-29A0D5AFE28B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCFB256C-2EF4-47C3-BA7E-09ABEC3BDD1D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1CF082-FBFB-4B29-837A-ADEC1CBDD626}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,10 +33,6 @@ Global
 		{AB8B0B1A-A53D-41BB-8B11-83D79BA52EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB8B0B1A-A53D-41BB-8B11-83D79BA52EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB8B0B1A-A53D-41BB-8B11-83D79BA52EF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73DA09D6-A917-46D0-89D3-29A0D5AFE28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73DA09D6-A917-46D0-89D3-29A0D5AFE28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73DA09D6-A917-46D0-89D3-29A0D5AFE28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73DA09D6-A917-46D0-89D3-29A0D5AFE28B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
