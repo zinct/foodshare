@@ -5,8 +5,8 @@ using System.Text.Json;
 
 namespace FoodShareRuntimeConfig
 {
-	public class Configuration()
-	{
+    public class Configuration()
+    {
         public string ApiURL { get; set; }
         public string Status { get; set; }
         public string AppName { get; set; }
@@ -14,7 +14,7 @@ namespace FoodShareRuntimeConfig
         public int maxTitleLength { get; set; }
         public int descTitleLength { get; set; }
     }
-    
+
     public Configuration() { }
 
     public Config(string ApiURL, string Status, string AppName, string AppVersion, int maxTitleLength, int descTitleLength)
@@ -26,7 +26,7 @@ namespace FoodShareRuntimeConfig
         maxTitleLength = maxTitle;
         descTitleLength = descTitle;
     }
-    
+
     public class FoodShareConfig
     {
         public Configuration config { get; set; }
@@ -72,5 +72,6 @@ namespace FoodShareRuntimeConfig
         {
             config = new Configuration("\"http://localhost:5276/api\"", "Development", "Food Share", "0.1", 50, 200);
         }
-    }  
+    }
+
 }
