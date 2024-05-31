@@ -43,7 +43,8 @@ namespace GUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            AddForm addForm = new AddForm();
+            addForm.Show();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

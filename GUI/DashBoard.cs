@@ -5,6 +5,7 @@ namespace GUI
         public DashBoard()
         {
             InitializeComponent();
+            LoadForm(new PageDashboard());
         }
 
         public void LoadForm(Object Form)
