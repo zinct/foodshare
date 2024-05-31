@@ -38,7 +38,8 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            EditForm editForm = new EditForm();
+            editForm.Show();
         }
 
         private void AddButton_Click(object sender, EventArgs e)

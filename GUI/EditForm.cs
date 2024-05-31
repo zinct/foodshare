@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class AddForm : Form
+    public partial class EditForm : Form
     {
-        public AddForm()
+        public EditForm()
         {
             InitializeComponent();
-        }
-
-        private void SubmitButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

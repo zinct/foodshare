@@ -36,13 +36,14 @@
             label4 = new Label();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
+            SubmitButton = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(89, 137);
+            label1.Location = new Point(101, 96);
             label1.Name = "label1";
             label1.Size = new Size(161, 28);
             label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // NamaMakananTB
             // 
-            NamaMakananTB.Location = new Point(314, 137);
+            NamaMakananTB.Location = new Point(326, 96);
             NamaMakananTB.Name = "NamaMakananTB";
             NamaMakananTB.Size = new Size(360, 27);
             NamaMakananTB.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(89, 176);
+            label2.Location = new Point(101, 135);
             label2.Name = "label2";
             label2.Size = new Size(154, 28);
             label2.TabIndex = 2;
@@ -69,7 +70,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(89, 214);
+            label3.Location = new Point(101, 173);
             label3.Name = "label3";
             label3.Size = new Size(212, 28);
             label3.TabIndex = 4;
@@ -77,7 +78,7 @@
             // 
             // JumlahTB
             // 
-            JumlahTB.Location = new Point(314, 255);
+            JumlahTB.Location = new Point(326, 214);
             JumlahTB.Name = "JumlahTB";
             JumlahTB.Size = new Size(360, 27);
             JumlahTB.TabIndex = 7;
@@ -86,7 +87,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(89, 251);
+            label4.Location = new Point(101, 210);
             label4.Name = "label4";
             label4.Size = new Size(80, 28);
             label4.TabIndex = 6;
@@ -94,23 +95,35 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(314, 178);
+            dateTimePicker1.Location = new Point(326, 137);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(360, 27);
             dateTimePicker1.TabIndex = 8;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(314, 216);
+            dateTimePicker2.Location = new Point(326, 175);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(360, 27);
             dateTimePicker2.TabIndex = 9;
+            // 
+            // SubmitButton
+            // 
+            SubmitButton.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SubmitButton.Location = new Point(311, 301);
+            SubmitButton.Name = "SubmitButton";
+            SubmitButton.Size = new Size(151, 46);
+            SubmitButton.TabIndex = 10;
+            SubmitButton.Text = "Submit";
+            SubmitButton.UseVisualStyleBackColor = true;
+            SubmitButton.Click += SubmitButton_Click;
             // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(SubmitButton);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
             Controls.Add(JumlahTB);
@@ -135,5 +148,6 @@
         private Label label4;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
+        private Button SubmitButton;
     }
 }
