@@ -29,11 +29,26 @@ namespace GUI
 
         private void PageDataMakananMasuk_Load(object sender, EventArgs e)
         {
-            MakananMasukGrid.Rows.Add("1", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000" );
+            MakananMasukGrid.Rows.Add("1", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
             MakananMasukGrid.Rows.Add("2", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
             MakananMasukGrid.Rows.Add("3", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
             MakananMasukGrid.Rows.Add("4", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
             MakananMasukGrid.Rows.Add("5", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

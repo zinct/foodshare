@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageDataMakananMasuk));
             label1 = new Label();
             label2 = new Label();
             MakananMasukGrid = new DataGridView();
@@ -39,6 +40,9 @@
             TanggalMasuk = new DataGridViewTextBoxColumn();
             TanggalKadaluwarsa = new DataGridViewTextBoxColumn();
             Jumlah = new DataGridViewTextBoxColumn();
+            DeleteButton = new Button();
+            EditButton = new Button();
+            AddButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MakananMasukGrid).BeginInit();
             SuspendLayout();
             // 
@@ -54,10 +58,13 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(17, 48, 101);
             label2.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(28, 25);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(28, 20);
             label2.Name = "label2";
-            label2.Size = new Size(355, 46);
+            label2.Padding = new Padding(5);
+            label2.Size = new Size(365, 56);
             label2.TabIndex = 1;
             label2.Text = "Data Makanan Masuk";
             label2.Click += label2_Click;
@@ -66,44 +73,45 @@
             // 
             MakananMasukGrid.AllowUserToAddRows = false;
             MakananMasukGrid.AllowUserToDeleteRows = false;
-            MakananMasukGrid.AllowUserToOrderColumns = true;
             MakananMasukGrid.AllowUserToResizeColumns = false;
             MakananMasukGrid.AllowUserToResizeRows = false;
+            MakananMasukGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             MakananMasukGrid.BackgroundColor = Color.White;
             MakananMasukGrid.BorderStyle = BorderStyle.None;
-            MakananMasukGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(17, 48, 101);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            MakananMasukGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            MakananMasukGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(170, 214, 236);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            MakananMasukGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             MakananMasukGrid.ColumnHeadersHeight = 60;
             MakananMasukGrid.Columns.AddRange(new DataGridViewColumn[] { ID, NamaMakanan, TanggalMasuk, TanggalKadaluwarsa, Jumlah });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            MakananMasukGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            MakananMasukGrid.DefaultCellStyle = dataGridViewCellStyle2;
             MakananMasukGrid.EnableHeadersVisualStyles = false;
+            MakananMasukGrid.GridColor = Color.White;
             MakananMasukGrid.Location = new Point(28, 133);
             MakananMasukGrid.MultiSelect = false;
             MakananMasukGrid.Name = "MakananMasukGrid";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            MakananMasukGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            MakananMasukGrid.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            MakananMasukGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             MakananMasukGrid.RowHeadersVisible = false;
-            MakananMasukGrid.RowHeadersWidth = 51;
+            MakananMasukGrid.RowHeadersWidth = 60;
             MakananMasukGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MakananMasukGrid.Size = new Size(1092, 604);
             MakananMasukGrid.TabIndex = 2;
@@ -115,7 +123,8 @@
             ID.HeaderText = "ID";
             ID.MinimumWidth = 6;
             ID.Name = "ID";
-            ID.Width = 53;
+            ID.ReadOnly = true;
+            ID.Width = 61;
             // 
             // NamaMakanan
             // 
@@ -123,6 +132,7 @@
             NamaMakanan.HeaderText = "Nama Makanan";
             NamaMakanan.MinimumWidth = 6;
             NamaMakanan.Name = "NamaMakanan";
+            NamaMakanan.ReadOnly = true;
             // 
             // TanggalMasuk
             // 
@@ -130,6 +140,7 @@
             TanggalMasuk.HeaderText = "Tanggal Masuk";
             TanggalMasuk.MinimumWidth = 6;
             TanggalMasuk.Name = "TanggalMasuk";
+            TanggalMasuk.ReadOnly = true;
             // 
             // TanggalKadaluwarsa
             // 
@@ -137,6 +148,7 @@
             TanggalKadaluwarsa.HeaderText = "Tanggal Kadaluwarsa";
             TanggalKadaluwarsa.MinimumWidth = 6;
             TanggalKadaluwarsa.Name = "TanggalKadaluwarsa";
+            TanggalKadaluwarsa.ReadOnly = true;
             // 
             // Jumlah
             // 
@@ -144,12 +156,46 @@
             Jumlah.HeaderText = "Jumlah";
             Jumlah.MinimumWidth = 6;
             Jumlah.Name = "Jumlah";
+            Jumlah.ReadOnly = true;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.Image = (Image)resources.GetObject("DeleteButton.Image");
+            DeleteButton.Location = new Point(1061, 74);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(59, 53);
+            DeleteButton.TabIndex = 3;
+            DeleteButton.UseVisualStyleBackColor = true;
+            DeleteButton.Click += DeleteButton_Click;
+            // 
+            // EditButton
+            // 
+            EditButton.Image = (Image)resources.GetObject("EditButton.Image");
+            EditButton.Location = new Point(996, 74);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(59, 53);
+            EditButton.TabIndex = 4;
+            EditButton.UseVisualStyleBackColor = true;
+            EditButton.Click += button2_Click;
+            // 
+            // AddButton
+            // 
+            AddButton.Image = (Image)resources.GetObject("AddButton.Image");
+            AddButton.Location = new Point(931, 74);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(59, 53);
+            AddButton.TabIndex = 5;
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // PageDataMakananMasuk
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1147, 763);
+            Controls.Add(AddButton);
+            Controls.Add(EditButton);
+            Controls.Add(DeleteButton);
             Controls.Add(MakananMasukGrid);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -172,5 +218,8 @@
         private DataGridViewTextBoxColumn TanggalMasuk;
         private DataGridViewTextBoxColumn TanggalKadaluwarsa;
         private DataGridViewTextBoxColumn Jumlah;
+        private Button DeleteButton;
+        private Button EditButton;
+        private Button AddButton;
     }
 }
