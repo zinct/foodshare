@@ -23,7 +23,7 @@ namespace FoodShareCore.Utilities
         //input 2069-02-02
         public static bool ValidateDateInput(String date)
         {
-            Debug.Assert(date != null, "Date tidak boleh kosong");
+            Debug.Assert(date != null, "Date tidak boleh null");
             try
             {
                 if (date.Length > 10) return false;
@@ -37,11 +37,10 @@ namespace FoodShareCore.Utilities
 
                 return year >= 0 && year <= 9999 && month >= 0 && month <= 12 && ((day >= 0 && day <= totalDayInAMonth[month - 1]) || (isLeapYear && day >= 0 && day <= 29));
 
-            } catch(Exception ex)
+            } catch(Exception)
             {
                 return false;
-            }
-            
+            }  
         }
     }
 }
