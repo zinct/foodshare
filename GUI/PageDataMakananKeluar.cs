@@ -36,5 +36,10 @@ namespace GUI
             ExitForm exitForm = new ExitForm();
             exitForm.ShowDialog();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
