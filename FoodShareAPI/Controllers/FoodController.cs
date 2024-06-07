@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodShareAPI.Models;
-using FoodShareCore.Utilities;
 
 namespace FoodShareAPI.Controllers
 {
@@ -8,27 +7,21 @@ namespace FoodShareAPI.Controllers
     [Route("api/[controller]")]
     public class FoodController : ControllerBase
     {
+        private readonly ApplicationDBContext _dbContext;
         public static List<Food> foodList = new List<Food>();
 
+        public FoodController(ApplicationDBContext dbContext) 
+        {
+            _dbContext = dbContext;
+        }
+
         [HttpGet]
-        public ActionResult<IEnumerable<object>> Get()
+        public IActionResult Get()
         {
             try
             {
-                List<object> mappedFoodList = foodList.Select((food, index) => new
-                {
-                    id = index,
-                    createdAt = food.CreatedAt,
-                    expire = food.Expire.ToString("yyyy-MM-dd"),
-                    name = food.Name,
-                    description = food.Description,
-                    condition = food.Condition,
-                    source = food.Source,
-                    category = food.Category,
-                    quantity = food.Quantity
-                }).ToList<object>();
-
-                return mappedFoodList;
+                var foodList = _dbContext.Foods.ToList();
+                return Ok(foodList);
             }
             catch (Exception e)
             {
@@ -36,13 +29,13 @@ namespace FoodShareAPI.Controllers
             }
         }
 
-
         [HttpGet("{id}")]
-        public ActionResult<Food> Show(int id)
+        public IActionResult Show(int id)
         {
             try
             {
-                return ListUtilities.ReadByID<Food>(foodList, id);
+                var food = _dbContext.Foods.Single(food => food.Id == id);
+                return Ok(food);
             }
             catch (Exception e)
             {
@@ -57,16 +50,28 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Food food)
+        public ActionResult Store(Food foodRequest)
         {
             try
             {
-                foodList = ListUtilities.Create<Food>(foodList, food);
+                _dbContext.Foods.Add
+                (
+                    new Food
+                    {
+                        Name = foodRequest.Name,
+                        Expire = foodRequest.Expire,
+                        Conditions = foodRequest.Conditions,
+                        Source = foodRequest.Source,
+                        Category = foodRequest.Category,
+                        Quantity = foodRequest.Quantity,
+                    }
+                );
+                _dbContext.SaveChanges();
                 return NoContent();
             }
             catch(Exception e)
             {
-                return StatusCode(500, e.Message);
+                return StatusCode(500, e.InnerException.Message);
             }
         }
 
@@ -75,7 +80,15 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                ListUtilities.Delete<Food>(foodList, id);
+                var food = _dbContext.Foods.Single(food => food.Id == id);
+
+                if (food == null)
+                {
+                    throw new ArgumentException();
+                }
+
+                _dbContext.Remove(food);
+                _dbContext.SaveChanges();
                 return NoContent();
             }
             catch (Exception e)
@@ -92,11 +105,24 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(int id, Food data)
+        public ActionResult Update(int id, Food foodRequest)
         {
             try
             {
-                foodList = ListUtilities.Update<Food>(foodList, data, id);
+                var food = _dbContext.Foods.Single(food => food.Id == id);
+
+                if(food == null)
+                {
+                    throw new ArgumentException();
+                }
+
+                food.Name = foodRequest.Name;
+                food.Expire = foodRequest.Expire;
+                food.Source = foodRequest.Source;
+                food.Category = foodRequest.Category;
+                food.Quantity = foodRequest.Quantity;
+
+                _dbContext.SaveChanges();
                 return NoContent();
             }
             catch (Exception e)

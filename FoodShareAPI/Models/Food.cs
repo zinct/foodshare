@@ -1,29 +1,23 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace FoodShareAPI.Models
 {
     public class Food
     {
+        [JsonIgnore]
+        public int Id { get; set; }
+        [Column("created_at")]
+        [JsonIgnore]
         public DateTime CreatedAt { get; set; }
         public DateOnly Expire { get; set; }
-        public String Name { get; set; }
-        public String Description { get; set; }
-        public String Condition { get; set; }
-        public String Source { get; set; }
-        public String Category { get; set; }
+        public string Name { get; set; }
+        public string Conditions { get; set; }
+        public string Source { get; set; }
+        public string Category { get; set; }
         public int Quantity { get; set; }
-
-        public Food(DateOnly expire, String name, String description, String condition, String source, String category, int quantity)
-        {
-            Expire = expire;
-            Name = name;
-            Description = description;
-            Condition = condition;
-            Source = source;
-            Category = category;
-            Quantity = quantity;
-
-            CreatedAt = DateTime.Now;
-        }
     }
 }
 
