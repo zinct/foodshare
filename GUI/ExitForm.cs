@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class EditForm : Form
+    public partial class ExitForm : Form
     {
-        public EditForm()
+        public ExitForm()
         {
             InitializeComponent();
         }
 
-        private void SubmitButton_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
