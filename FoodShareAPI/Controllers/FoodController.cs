@@ -8,7 +8,6 @@ namespace FoodShareAPI.Controllers
     public class FoodController : ControllerBase
     {
         private readonly ApplicationDBContext _dbContext;
-        public static List<Food> foodList = new List<Food>();
 
         public FoodController(ApplicationDBContext dbContext) 
         {
