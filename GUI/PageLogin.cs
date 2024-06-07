@@ -10,21 +10,22 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class PageDashboard : Form
+    public partial class PageLogin : Form
     {
-        public PageDashboard()
+        public PageLogin()
         {
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
+           
+        }
 
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new DashBoard().Show();
         }
     }
 }

@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             SidePanel = new Panel();
             DashboardButton = new Button();
-            panel1 = new Panel();
             pictureBox1 = new PictureBox();
             button1 = new Button();
             DataMakananLayakButton = new Button();
@@ -41,6 +40,7 @@
             MainPanel = new Panel();
             bindingSource1 = new BindingSource(components);
             imageList1 = new ImageList(components);
+            button2 = new Button();
             SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -49,8 +49,8 @@
             // SidePanel
             // 
             SidePanel.BackColor = Color.FromArgb(93, 95, 239);
+            SidePanel.Controls.Add(button2);
             SidePanel.Controls.Add(DashboardButton);
-            SidePanel.Controls.Add(panel1);
             SidePanel.Controls.Add(pictureBox1);
             SidePanel.Controls.Add(button1);
             SidePanel.Controls.Add(DataMakananLayakButton);
@@ -86,15 +86,6 @@
             DashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             DashboardButton.UseVisualStyleBackColor = false;
             DashboardButton.Click += DashboardButton_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.ForeColor = Color.Black;
-            panel1.Location = new Point(0, 137);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(256, 1);
-            panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -210,6 +201,28 @@
             imageList1.ImageSize = new Size(200, 200);
             imageList1.TransparentColor = Color.Transparent;
             // 
+            // button2
+            // 
+            button2.AutoEllipsis = true;
+            button2.BackColor = Color.FromArgb(93, 95, 239);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.White;
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ButtonFace;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 404);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Padding = new Padding(20, 0, 0, 0);
+            button2.Size = new Size(256, 44);
+            button2.TabIndex = 9;
+            button2.TextAlign = ContentAlignment.MiddleLeft;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -238,6 +251,6 @@
         private Button button1;
         private PictureBox pictureBox1;
         private ImageList imageList1;
-        private Panel panel1;
+        private Button button2;
     }
 }
