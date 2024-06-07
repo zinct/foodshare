@@ -1,3 +1,5 @@
+using System;
+
 namespace GUI
 {
     public partial class DashBoard : Form
@@ -49,6 +51,26 @@ namespace GUI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadForm(new PageLaporan());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SidePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

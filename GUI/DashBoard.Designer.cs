@@ -29,84 +29,124 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             SidePanel = new Panel();
             DashboardButton = new Button();
-            button3 = new Button();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            button1 = new Button();
             DataMakananLayakButton = new Button();
             DataMakananKeluarButton = new Button();
             DataMakananMasukButton = new Button();
             MainPanel = new Panel();
             bindingSource1 = new BindingSource(components);
+            imageList1 = new ImageList(components);
             SidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // SidePanel
             // 
-            SidePanel.BackColor = Color.FromArgb(17, 48, 101);
+            SidePanel.BackColor = Color.FromArgb(93, 95, 239);
             SidePanel.Controls.Add(DashboardButton);
-            SidePanel.Controls.Add(button3);
+            SidePanel.Controls.Add(panel1);
+            SidePanel.Controls.Add(pictureBox1);
+            SidePanel.Controls.Add(button1);
             SidePanel.Controls.Add(DataMakananLayakButton);
             SidePanel.Controls.Add(DataMakananKeluarButton);
             SidePanel.Controls.Add(DataMakananMasukButton);
             SidePanel.Dock = DockStyle.Left;
             SidePanel.Location = new Point(0, 0);
+            SidePanel.Margin = new Padding(3, 2, 3, 2);
             SidePanel.Name = "SidePanel";
-            SidePanel.Size = new Size(275, 763);
+            SidePanel.Size = new Size(256, 650);
             SidePanel.TabIndex = 0;
+            SidePanel.Paint += SidePanel_Paint;
             // 
             // DashboardButton
             // 
             DashboardButton.AutoEllipsis = true;
-            DashboardButton.BackColor = Color.FromArgb(17, 48, 101);
+            DashboardButton.BackColor = Color.FromArgb(93, 95, 239);
+            DashboardButton.BackgroundImageLayout = ImageLayout.Zoom;
             DashboardButton.FlatAppearance.BorderSize = 0;
             DashboardButton.FlatAppearance.MouseDownBackColor = Color.White;
             DashboardButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
             DashboardButton.FlatStyle = FlatStyle.Flat;
             DashboardButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DashboardButton.ForeColor = SystemColors.ButtonFace;
-            DashboardButton.Location = new Point(13, 215);
+            DashboardButton.Image = (Image)resources.GetObject("DashboardButton.Image");
+            DashboardButton.ImageAlign = ContentAlignment.MiddleLeft;
+            DashboardButton.Location = new Point(0, 162);
+            DashboardButton.Margin = new Padding(3, 2, 3, 2);
             DashboardButton.Name = "DashboardButton";
-            DashboardButton.Padding = new Padding(5, 0, 0, 0);
-            DashboardButton.Size = new Size(244, 59);
+            DashboardButton.Padding = new Padding(20, 0, 0, 0);
+            DashboardButton.Size = new Size(256, 44);
             DashboardButton.TabIndex = 6;
-            DashboardButton.Text = "Dashboard";
-            DashboardButton.TextAlign = ContentAlignment.MiddleLeft;
+            DashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             DashboardButton.UseVisualStyleBackColor = false;
             DashboardButton.Click += DashboardButton_Click;
             // 
-            // button3
+            // panel1
             // 
-            button3.BackColor = Color.Aqua;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseDownBackColor = Color.White;
-            button3.FlatAppearance.MouseOverBackColor = Color.White;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ButtonFace;
-            button3.Location = new Point(13, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(244, 160);
-            button3.TabIndex = 4;
-            button3.Text = "LOGO";
-            button3.UseVisualStyleBackColor = false;
+            panel1.BackColor = Color.White;
+            panel1.ForeColor = Color.Black;
+            panel1.Location = new Point(0, 137);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(256, 1);
+            panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(23, 35);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(190, 78);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // button1
+            // 
+            button1.AutoEllipsis = true;
+            button1.BackColor = Color.FromArgb(93, 95, 239);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.White;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 356);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Padding = new Padding(20, 0, 0, 0);
+            button1.Size = new Size(256, 44);
+            button1.TabIndex = 7;
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // DataMakananLayakButton
             // 
             DataMakananLayakButton.AutoEllipsis = true;
-            DataMakananLayakButton.BackColor = Color.FromArgb(17, 48, 101);
+            DataMakananLayakButton.BackColor = Color.FromArgb(93, 95, 239);
             DataMakananLayakButton.FlatAppearance.BorderSize = 0;
             DataMakananLayakButton.FlatAppearance.MouseDownBackColor = Color.White;
             DataMakananLayakButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
             DataMakananLayakButton.FlatStyle = FlatStyle.Flat;
             DataMakananLayakButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DataMakananLayakButton.ForeColor = SystemColors.ButtonFace;
-            DataMakananLayakButton.Location = new Point(13, 345);
+            DataMakananLayakButton.Image = (Image)resources.GetObject("DataMakananLayakButton.Image");
+            DataMakananLayakButton.ImageAlign = ContentAlignment.MiddleLeft;
+            DataMakananLayakButton.Location = new Point(0, 259);
+            DataMakananLayakButton.Margin = new Padding(3, 2, 3, 2);
             DataMakananLayakButton.Name = "DataMakananLayakButton";
-            DataMakananLayakButton.Padding = new Padding(5, 0, 0, 0);
-            DataMakananLayakButton.Size = new Size(244, 59);
+            DataMakananLayakButton.Padding = new Padding(20, 0, 0, 0);
+            DataMakananLayakButton.Size = new Size(256, 44);
             DataMakananLayakButton.TabIndex = 5;
-            DataMakananLayakButton.Text = "Data Makanan Layak";
             DataMakananLayakButton.TextAlign = ContentAlignment.MiddleLeft;
             DataMakananLayakButton.UseVisualStyleBackColor = false;
             DataMakananLayakButton.Click += DataMakananLayakButton_Click;
@@ -114,19 +154,21 @@
             // DataMakananKeluarButton
             // 
             DataMakananKeluarButton.AutoEllipsis = true;
-            DataMakananKeluarButton.BackColor = Color.FromArgb(17, 48, 101);
+            DataMakananKeluarButton.BackColor = Color.FromArgb(93, 95, 239);
             DataMakananKeluarButton.FlatAppearance.BorderSize = 0;
             DataMakananKeluarButton.FlatAppearance.MouseDownBackColor = Color.White;
             DataMakananKeluarButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
             DataMakananKeluarButton.FlatStyle = FlatStyle.Flat;
             DataMakananKeluarButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DataMakananKeluarButton.ForeColor = SystemColors.ButtonFace;
-            DataMakananKeluarButton.Location = new Point(13, 410);
+            DataMakananKeluarButton.Image = (Image)resources.GetObject("DataMakananKeluarButton.Image");
+            DataMakananKeluarButton.ImageAlign = ContentAlignment.MiddleLeft;
+            DataMakananKeluarButton.Location = new Point(0, 308);
+            DataMakananKeluarButton.Margin = new Padding(3, 2, 3, 2);
             DataMakananKeluarButton.Name = "DataMakananKeluarButton";
-            DataMakananKeluarButton.Padding = new Padding(5, 0, 0, 0);
-            DataMakananKeluarButton.Size = new Size(244, 59);
+            DataMakananKeluarButton.Padding = new Padding(20, 0, 0, 0);
+            DataMakananKeluarButton.Size = new Size(256, 44);
             DataMakananKeluarButton.TabIndex = 3;
-            DataMakananKeluarButton.Text = "Data Makanan Keluar";
             DataMakananKeluarButton.TextAlign = ContentAlignment.MiddleLeft;
             DataMakananKeluarButton.UseVisualStyleBackColor = false;
             DataMakananKeluarButton.Click += DataMakananKeluarButton_Click;
@@ -134,42 +176,52 @@
             // DataMakananMasukButton
             // 
             DataMakananMasukButton.AutoEllipsis = true;
-            DataMakananMasukButton.BackColor = Color.FromArgb(17, 48, 101);
+            DataMakananMasukButton.BackColor = Color.FromArgb(93, 95, 239);
             DataMakananMasukButton.FlatAppearance.BorderSize = 0;
             DataMakananMasukButton.FlatAppearance.MouseDownBackColor = Color.White;
             DataMakananMasukButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 89, 131);
             DataMakananMasukButton.FlatStyle = FlatStyle.Flat;
             DataMakananMasukButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DataMakananMasukButton.ForeColor = SystemColors.ButtonFace;
-            DataMakananMasukButton.Location = new Point(13, 280);
+            DataMakananMasukButton.Image = (Image)resources.GetObject("DataMakananMasukButton.Image");
+            DataMakananMasukButton.ImageAlign = ContentAlignment.MiddleLeft;
+            DataMakananMasukButton.Location = new Point(0, 210);
+            DataMakananMasukButton.Margin = new Padding(3, 2, 3, 2);
             DataMakananMasukButton.Name = "DataMakananMasukButton";
-            DataMakananMasukButton.Padding = new Padding(5, 0, 0, 0);
-            DataMakananMasukButton.Size = new Size(244, 59);
+            DataMakananMasukButton.Padding = new Padding(20, 0, 0, 0);
+            DataMakananMasukButton.Size = new Size(256, 44);
             DataMakananMasukButton.TabIndex = 1;
-            DataMakananMasukButton.Text = "Data Makanan Masuk";
             DataMakananMasukButton.TextAlign = ContentAlignment.MiddleLeft;
             DataMakananMasukButton.UseVisualStyleBackColor = false;
             DataMakananMasukButton.Click += DataMakananMasukButton_Click;
             // 
             // MainPanel
             // 
-            MainPanel.Dock = DockStyle.Fill;
-            MainPanel.Location = new Point(275, 0);
+            MainPanel.Location = new Point(257, 0);
+            MainPanel.Margin = new Padding(3, 2, 3, 2);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(1147, 763);
+            MainPanel.Size = new Size(988, 650);
             MainPanel.TabIndex = 1;
             MainPanel.Paint += MainPanel_Paint;
             // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(200, 200);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
             // DashBoard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1422, 763);
+            ClientSize = new Size(1244, 650);
             Controls.Add(MainPanel);
             Controls.Add(SidePanel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DashBoard";
             Text = "FoodShare";
             SidePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
         }
@@ -178,11 +230,14 @@
 
         private Panel SidePanel;
         private Button DataMakananMasukButton;
-        private Button button3;
         private Button DataMakananKeluarButton;
         private Panel MainPanel;
         private Button DataMakananLayakButton;
         private BindingSource bindingSource1;
         private Button DashboardButton;
+        private Button button1;
+        private PictureBox pictureBox1;
+        private ImageList imageList1;
+        private Panel panel1;
     }
 }
