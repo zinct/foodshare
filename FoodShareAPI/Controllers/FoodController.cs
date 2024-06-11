@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodShareAPI.Models;
+using FoodShareAPI.Requests;
+using FoodShareAPI.Exceptions;
 
 namespace FoodShareAPI.Controllers
 {
@@ -19,7 +21,26 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                var foodList = _dbContext.Foods.ToList();
+                List<Food> foodList = _dbContext.Foods
+                        .ToList();
+                
+                return Ok(foodList);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet("good-condition")]
+        public IActionResult GetGoodConditionFood()
+        {
+            try
+            {
+                List<Food> foodList = _dbContext.Foods
+                    .Where(food => food.Status == "Good")
+                        .ToList();
+
                 return Ok(foodList);
             }
             catch (Exception e)
@@ -130,6 +151,74 @@ namespace FoodShareAPI.Controllers
                 if (e is ArgumentOutOfRangeException)
                 {
                     return NotFound();
+                }
+
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpPost("change-status/{id}")]
+        public ActionResult ChangeStatus(int id, String status)
+        {
+            try
+            {
+                var food = _dbContext.Foods.Single(food => food.Id == id);
+
+                if (food == null)
+                {
+                    throw new ArgumentException();
+                }
+
+                food.Status = status;
+
+                _dbContext.SaveChanges();
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                // Catch ArgumentOutOfRangeException exception
+                if (e is ArgumentOutOfRangeException)
+                {
+                    return NotFound();
+                }
+
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpPost("distributed/{id}")]
+        public ActionResult Distributed(int id, DistributedRequest request)
+        {
+            try
+            {
+                var food = _dbContext.Foods.Single(food => food.Id == id);
+
+                if (food == null)
+                {
+                    throw new ArgumentException();
+                }
+
+                if(food.Quantity < request.Amount)
+                {
+                    throw new ApiErrorException(400, "Stok makanan tidak mencukupi");
+                }
+
+                food.Quantity = food.Quantity - request.Amount;
+
+                _dbContext.SaveChanges();
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                // Catch ArgumentOutOfRangeException exception
+                if (e is ArgumentOutOfRangeException)
+                {
+                    return NotFound();
+                }
+
+                if (e is ApiErrorException)
+                {
+                    return StatusCode(((ApiErrorException)e).ErrorCode, ((ApiErrorException)e).Message);
                 }
 
                 return StatusCode(500, e.Message);

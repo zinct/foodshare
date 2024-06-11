@@ -40,7 +40,7 @@
     "FoodShareAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:50164;http://localhost:46211",
+      "applicationUrl": "https://localhost:20382;http://localhost:31371",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

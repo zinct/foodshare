@@ -1,5 +1,3 @@
-
-
 namespace FoodShareAPI.Requests
 {
     public class LoginRequest
