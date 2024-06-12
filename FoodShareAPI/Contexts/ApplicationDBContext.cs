@@ -7,7 +7,7 @@ public class ApplicationDBContext : DbContext
 {
     public DbSet<Food> Foods { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<User> Transactions { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
 
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
     {
