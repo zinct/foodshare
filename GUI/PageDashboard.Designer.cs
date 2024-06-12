@@ -61,6 +61,7 @@
             label1.Size = new Size(34, 40);
             label1.TabIndex = 1;
             label1.Text = "0";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -74,6 +75,7 @@
             label2.Size = new Size(34, 40);
             label2.TabIndex = 2;
             label2.Text = "0";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -101,6 +103,7 @@
             label4.Size = new Size(34, 40);
             label4.TabIndex = 4;
             label4.Text = "0";
+            label4.Click += label4_Click;
             // 
             // PageDashboard
             // 
