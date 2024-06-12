@@ -40,9 +40,9 @@
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(181, 80);
             label1.Name = "label1";
-            label1.Size = new Size(213, 32);
+            label1.Size = new Size(211, 32);
             label1.TabIndex = 0;
-            label1.Text = "Jumlah Quantitas";
+            label1.Text = "Jumlah Kuantitas";
             label1.Click += label1_Click;
             // 
             // label2

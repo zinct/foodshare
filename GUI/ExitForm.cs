@@ -16,10 +16,12 @@ namespace GUI
     public partial class ExitForm : Form
     {
         public FoodGoodConditionResponse food;
+        public PageDataMakananKeluar page;
 
-        public ExitForm()
+        public ExitForm(PageDataMakananKeluar page)
         {
             InitializeComponent();
+            this.page = page;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace GUI
                 int quantity = int.Parse(InputDistribution.Text);
 
                 ClientAPI api = new ClientAPI();
-                DistributeRequest body = new DistributeRequest { Amount = quantity};
+                DistributeRequest body = new DistributeRequest {Amount = quantity};
                 HttpResponseMessage response = await api.PostAsJson("/food/distributed/" + food.Id, body);
 
                 if (!response.IsSuccessStatusCode)
@@ -50,6 +52,8 @@ namespace GUI
             {
                 throw;
             }
+            page.Dataload();
+            MessageBox.Show("Distribusi berhasil!", "INFORMASI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InputDistribution_TextChanged(object sender, EventArgs e)

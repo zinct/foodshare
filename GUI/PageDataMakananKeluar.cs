@@ -16,14 +16,18 @@ namespace GUI
     public partial class PageDataMakananKeluar : Form
     {
         List<FoodGoodConditionResponse> goodConditions = new List<FoodGoodConditionResponse>();
+        int selectedIndex = 0;
         
         public PageDataMakananKeluar()
         {
             InitializeComponent();
         }
 
-        private async void PageDataMakananKeluar_Load(object sender, EventArgs e)
+        public async void Dataload()
         {
+            goodConditions.Clear();
+            MakananKeluarGrid.ClearSelection();
+            MakananKeluarGrid.Rows.Clear();
 
             ClientAPI api = new ClientAPI();
             HttpResponseMessage response = await api.Get("/food/good-condition");
@@ -34,20 +38,27 @@ namespace GUI
             }
 
             String responseJSON = await response.Content.ReadAsStringAsync();
+            
             List<FoodGoodConditionResponse> foods = JsonConvert.DeserializeObject<List<FoodGoodConditionResponse>>(responseJSON);
 
             int i = 1;
             foreach (var food in foods)
             {
-                MakananKeluarGrid.Rows.Add(i, food.Name, food.Expire, food.Condition, food.Source, food.Category, food.Quantity);
+                MakananKeluarGrid.Rows.Add(i, food.Name, food.Expire, food.Conditions, food.Source, food.Category, food.Quantity);
                 i++;
                 goodConditions.Add(food);
             }
+           
+        }
+
+        private async void PageDataMakananKeluar_Load(object sender, EventArgs e)
+        {
+            Dataload();
         }
 
         private void MakananKeluarGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            selectedIndex = e.RowIndex;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,8 +68,8 @@ namespace GUI
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            ExitForm exitForm = new ExitForm();
-            exitForm.food = goodConditions[MakananKeluarGrid.CurrentCell.RowIndex];
+            ExitForm exitForm = new ExitForm(this);
+            exitForm.food = goodConditions[selectedIndex];
             exitForm.ShowDialog();
         }
     }
