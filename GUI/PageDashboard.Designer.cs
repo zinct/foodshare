@@ -41,12 +41,13 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(12, 25);
+            pictureBox1.Location = new Point(12, 28);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(962, 424);
+            pictureBox1.Size = new Size(962, 481);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -55,9 +56,9 @@
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(115, 119, 145);
-            label1.Location = new Point(81, 264);
+            label1.Location = new Point(81, 299);
             label1.Name = "label1";
-            label1.Size = new Size(33, 37);
+            label1.Size = new Size(34, 40);
             label1.TabIndex = 1;
             label1.Text = "0";
             // 
@@ -68,9 +69,9 @@
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(115, 119, 145);
-            label2.Location = new Point(308, 264);
+            label2.Location = new Point(308, 299);
             label2.Name = "label2";
-            label2.Size = new Size(33, 37);
+            label2.Size = new Size(34, 40);
             label2.TabIndex = 2;
             label2.Text = "0";
             // 
@@ -81,9 +82,9 @@
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(115, 119, 145);
-            label3.Location = new Point(530, 260);
+            label3.Location = new Point(530, 295);
             label3.Name = "label3";
-            label3.Size = new Size(33, 37);
+            label3.Size = new Size(34, 40);
             label3.TabIndex = 3;
             label3.Text = "0";
             label3.Click += label3_Click;
@@ -95,18 +96,18 @@
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(115, 119, 145);
-            label4.Location = new Point(748, 261);
+            label4.Location = new Point(748, 296);
             label4.Name = "label4";
-            label4.Size = new Size(33, 37);
+            label4.Size = new Size(34, 40);
             label4.TabIndex = 4;
             label4.Text = "0";
             // 
             // PageDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(972, 502);
+            ClientSize = new Size(972, 569);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
