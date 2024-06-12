@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            InputDistribution = new TextBox();
             Submit = new Button();
             SuspendLayout();
             // 
@@ -53,12 +53,13 @@
             label2.Size = new Size(0, 15);
             label2.TabIndex = 1;
             // 
-            // textBox1
+            // InputDistribution
             // 
-            textBox1.Location = new Point(107, 153);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(366, 23);
-            textBox1.TabIndex = 2;
+            InputDistribution.Location = new Point(107, 153);
+            InputDistribution.Name = "InputDistribution";
+            InputDistribution.Size = new Size(366, 23);
+            InputDistribution.TabIndex = 2;
+            InputDistribution.TextChanged += InputDistribution_TextChanged;
             // 
             // Submit
             // 
@@ -68,6 +69,7 @@
             Submit.TabIndex = 3;
             Submit.Text = "Submit";
             Submit.UseVisualStyleBackColor = true;
+            Submit.Click += Submit_Click;
             // 
             // ExitForm
             // 
@@ -75,7 +77,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(573, 354);
             Controls.Add(Submit);
-            Controls.Add(textBox1);
+            Controls.Add(InputDistribution);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ExitForm";
@@ -88,7 +90,7 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox InputDistribution;
         private Button Submit;
     }
 }

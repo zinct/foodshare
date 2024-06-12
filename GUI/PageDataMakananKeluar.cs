@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FoodShareCore.API;
+using GUI.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,18 +15,34 @@ namespace GUI
 {
     public partial class PageDataMakananKeluar : Form
     {
+        List<FoodGoodConditionResponse> goodConditions = new List<FoodGoodConditionResponse>();
+        
         public PageDataMakananKeluar()
         {
             InitializeComponent();
         }
 
-        private void PageDataMakananKeluar_Load(object sender, EventArgs e)
+        private async void PageDataMakananKeluar_Load(object sender, EventArgs e)
         {
-            MakananKeluarGrid.Rows.Add("1", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananKeluarGrid.Rows.Add("2", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananKeluarGrid.Rows.Add("3", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananKeluarGrid.Rows.Add("4", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananKeluarGrid.Rows.Add("5", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
+
+            ClientAPI api = new ClientAPI();
+            HttpResponseMessage response = await api.Get("/food/good-condition");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Terjadi kesalahan ketika melakukan request ke API");
+            }
+
+            String responseJSON = await response.Content.ReadAsStringAsync();
+            List<FoodGoodConditionResponse> foods = JsonConvert.DeserializeObject<List<FoodGoodConditionResponse>>(responseJSON);
+
+            int i = 1;
+            foreach (var food in foods)
+            {
+                MakananKeluarGrid.Rows.Add(i, food.Name, food.Expire, food.Condition, food.Source, food.Category, food.Quantity);
+                i++;
+                goodConditions.Add(food);
+            }
         }
 
         private void MakananKeluarGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -31,15 +50,16 @@ namespace GUI
 
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            ExitForm exitForm = new ExitForm();
-            exitForm.ShowDialog();
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            ExitForm exitForm = new ExitForm();
+            exitForm.food = goodConditions[MakananKeluarGrid.CurrentCell.RowIndex];
+            exitForm.ShowDialog();
         }
     }
 }
