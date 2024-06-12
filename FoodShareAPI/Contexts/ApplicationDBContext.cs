@@ -7,6 +7,7 @@ public class ApplicationDBContext : DbContext
 {
     public DbSet<Food> Foods { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<User> Transactions { get; set; }
 
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
     {
@@ -22,6 +23,12 @@ public class ApplicationDBContext : DbContext
 
         builder.Entity<User>(entity => {
             entity.ToTable("users");
+            entity.Property(property => property.CreatedAt)
+                  .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        });
+
+        builder.Entity<Transaction>(entity => {
+            entity.ToTable("transactions");
             entity.Property(property => property.CreatedAt)
                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
         });
