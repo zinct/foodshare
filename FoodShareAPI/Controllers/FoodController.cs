@@ -227,7 +227,7 @@ namespace FoodShareAPI.Controllers
                     return StatusCode(((ApiErrorException)e).ErrorCode, ((ApiErrorException)e).Message);
                 }
 
-                return StatusCode(500, e.Message);
+                return StatusCode(500, e.InnerException.Message);
             }
         }
     }
