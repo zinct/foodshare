@@ -1,4 +1,5 @@
 ﻿using FoodShareCore.API;
+using GUI.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace GUI
         public PageDashboard()
         {
             InitializeComponent();
+            LoadNumber();
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -34,10 +37,15 @@ namespace GUI
 
         }
 
-        private async Task label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void LoadNumber()
         {
             ClientAPI api = new ClientAPI();
-            HttpResponseMessage response = await api.Get("/food");
+            HttpResponseMessage response = await api.Get("/dashboard");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -45,7 +53,12 @@ namespace GUI
             }
 
             String responseJSON = await response.Content.ReadAsStringAsync();
-           // List<ReadFoodResponse> foods = JsonConvert.DeserializeObject<List<ReadFoodResponse>>(responseJSON);
+            dashboardResponse foods = JsonConvert.DeserializeObject<dashboardResponse>(responseJSON);
+
+            label1.Text = foods.TotalFoods.ToString();
+            label2.Text = foods.TotalFoodGoodConditions.ToString();
+            label3.Text = foods.TotalFoodNotGoods.ToString();
+            label4.Text = foods.TotalFoodDistributeds.ToString();
         }
 
 

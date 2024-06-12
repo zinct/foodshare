@@ -206,7 +206,7 @@ namespace FoodShareAPI.Controllers
                 _dbContext.Transactions.Add(new Transaction()
                 {
                     FoodId = food.Id,
-                    //UserId = request.Id,
+                    UserId = id,
                 });
                 food.Quantity = food.Quantity - request.Amount;
 
@@ -227,7 +227,7 @@ namespace FoodShareAPI.Controllers
                     return StatusCode(((ApiErrorException)e).ErrorCode, ((ApiErrorException)e).Message);
                 }
 
-                return StatusCode(500, e.Message);
+                return StatusCode(500, e.InnerException.Message);
             }
         }
     }
