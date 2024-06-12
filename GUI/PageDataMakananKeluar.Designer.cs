@@ -33,13 +33,15 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageDataMakananKeluar));
             MakananKeluarGrid = new DataGridView();
+            label1 = new Label();
+            EditButton = new Button();
             ID = new DataGridViewTextBoxColumn();
             NamaMakanan = new DataGridViewTextBoxColumn();
             TanggalMasuk = new DataGridViewTextBoxColumn();
             TanggalKadaluwarsa = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
+            Sumber = new DataGridViewTextBoxColumn();
             Jumlah = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            EditButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MakananKeluarGrid).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             MakananKeluarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             MakananKeluarGrid.ColumnHeadersHeight = 60;
-            MakananKeluarGrid.Columns.AddRange(new DataGridViewColumn[] { ID, NamaMakanan, TanggalMasuk, TanggalKadaluwarsa, Jumlah });
+            MakananKeluarGrid.Columns.AddRange(new DataGridViewColumn[] { ID, NamaMakanan, TanggalMasuk, TanggalKadaluwarsa, Status, Sumber, Jumlah });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -73,8 +75,7 @@
             MakananKeluarGrid.DefaultCellStyle = dataGridViewCellStyle2;
             MakananKeluarGrid.EnableHeadersVisualStyles = false;
             MakananKeluarGrid.GridColor = Color.White;
-            MakananKeluarGrid.Location = new Point(30, 112);
-            MakananKeluarGrid.Margin = new Padding(3, 2, 3, 2);
+            MakananKeluarGrid.Location = new Point(34, 149);
             MakananKeluarGrid.MultiSelect = false;
             MakananKeluarGrid.Name = "MakananKeluarGrid";
             MakananKeluarGrid.ReadOnly = true;
@@ -88,9 +89,31 @@
             MakananKeluarGrid.RowHeadersVisible = false;
             MakananKeluarGrid.RowHeadersWidth = 60;
             MakananKeluarGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            MakananKeluarGrid.Size = new Size(956, 453);
+            MakananKeluarGrid.Size = new Size(1093, 604);
             MakananKeluarGrid.TabIndex = 3;
             MakananKeluarGrid.CellContentClick += MakananKeluarGrid_CellContentClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(382, 41);
+            label1.TabIndex = 5;
+            label1.Text = "DATA MAKANAN KELUAR";
+            label1.Click += label1_Click;
+            // 
+            // EditButton
+            // 
+            EditButton.FlatStyle = FlatStyle.Flat;
+            EditButton.ForeColor = Color.Transparent;
+            EditButton.Image = (Image)resources.GetObject("EditButton.Image");
+            EditButton.Location = new Point(896, 65);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(231, 68);
+            EditButton.TabIndex = 6;
+            EditButton.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -99,7 +122,7 @@
             ID.MinimumWidth = 6;
             ID.Name = "ID";
             ID.ReadOnly = true;
-            ID.Width = 51;
+            ID.Width = 61;
             // 
             // NamaMakanan
             // 
@@ -125,6 +148,22 @@
             TanggalKadaluwarsa.Name = "TanggalKadaluwarsa";
             TanggalKadaluwarsa.ReadOnly = true;
             // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 125;
+            // 
+            // Sumber
+            // 
+            Sumber.HeaderText = "Sumber";
+            Sumber.MinimumWidth = 6;
+            Sumber.Name = "Sumber";
+            Sumber.ReadOnly = true;
+            Sumber.Width = 125;
+            // 
             // Jumlah
             // 
             Jumlah.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -133,39 +172,15 @@
             Jumlah.Name = "Jumlah";
             Jumlah.ReadOnly = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(30, 49);
-            label1.Name = "label1";
-            label1.Size = new Size(308, 32);
-            label1.TabIndex = 5;
-            label1.Text = "DATA MAKANAN KELUAR";
-            label1.Click += label1_Click;
-            // 
-            // EditButton
-            // 
-            EditButton.FlatStyle = FlatStyle.Flat;
-            EditButton.ForeColor = Color.Transparent;
-            EditButton.Image = (Image)resources.GetObject("EditButton.Image");
-            EditButton.Location = new Point(784, 49);
-            EditButton.Margin = new Padding(3, 2, 3, 2);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(202, 51);
-            EditButton.TabIndex = 6;
-            EditButton.UseVisualStyleBackColor = true;
-            // 
             // PageDataMakananKeluar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 594);
+            ClientSize = new Size(1166, 792);
             Controls.Add(EditButton);
             Controls.Add(label1);
             Controls.Add(MakananKeluarGrid);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "PageDataMakananKeluar";
             Text = "PageDataMakananKeluar";
             Load += PageDataMakananKeluar_Load;
@@ -177,12 +192,14 @@
         #endregion
 
         private DataGridView MakananKeluarGrid;
+        private Label label1;
+        private Button EditButton;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn NamaMakanan;
         private DataGridViewTextBoxColumn TanggalMasuk;
         private DataGridViewTextBoxColumn TanggalKadaluwarsa;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn Sumber;
         private DataGridViewTextBoxColumn Jumlah;
-        private Label label1;
-        private Button EditButton;
     }
 }

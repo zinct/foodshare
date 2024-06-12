@@ -1,17 +1,24 @@
-﻿using System;
+﻿using FoodShareAPI.Models;
+using FoodShareCore.API;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+
 
 namespace GUI
 {
     public partial class PageDataMakananMasuk : Form
     {
+        List<Food> foodList = new List<Food>();
+        int selectedIndex = 0;
         public PageDataMakananMasuk()
         {
             InitializeComponent();
@@ -24,16 +31,31 @@ namespace GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
+            selectedIndex = e.RowIndex;
         }
 
-        private void PageDataMakananMasuk_Load(object sender, EventArgs e)
+        private async void PageDataMakananMasuk_Load(object sender, EventArgs e)
         {
-            MakananMasukGrid.Rows.Add("1", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananMasukGrid.Rows.Add("2", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananMasukGrid.Rows.Add("3", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananMasukGrid.Rows.Add("4", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
-            MakananMasukGrid.Rows.Add("5", "Nasi Goreng", "12-12-2003", "12-12-2004", "1000");
+            ClientAPI api = new ClientAPI();
+            HttpResponseMessage response = await api.Get("/food");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Terjadi kesalahan dalam melakukan request ke API");
+                
+            }
+            String responseJSON =  await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseJSON);
+            List<Food> foods = JsonConvert.DeserializeObject<List<Food>>(responseJSON);
+
+            int i = 1;
+            foreach (Food food in foods)
+            {
+                foodList.Add(food);
+                MakananMasukGrid.Rows.Add(i, food.Name, food.CreatedAt, food.Expire, food.Conditions, food.Source, food.Status, food.Quantity);
+                i++;
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,9 +70,20 @@ namespace GUI
             addForm.Show();
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private async void DeleteButton_Click(object sender, EventArgs e)
         {
+            int selectedId = foodList[selectedIndex].Id;
+            String url = "/food/" + selectedId;
+            Console.WriteLine(foodList[selectedIndex].Name);
 
+            ClientAPI api = new ClientAPI();
+            HttpResponseMessage response = await api.Delete(url);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Terjadi kesalahan dalam melakukan penghapusan data");
+
+            }
         }
     }
 }
