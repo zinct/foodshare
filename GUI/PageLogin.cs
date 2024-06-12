@@ -15,6 +15,12 @@ namespace GUI
         public PageLogin()
         {
             InitializeComponent();
+            this.FormClosing += DashboardClosing;
+        }
+
+        private void DashboardClosing(Object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -24,7 +30,7 @@ namespace GUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
             new DashBoard().Show();
         }
     }

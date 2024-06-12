@@ -8,6 +8,12 @@ namespace GUI
         {
             InitializeComponent();
             LoadForm(new PageDashboard());
+            this.FormClosing += DashboardClosing;
+        }
+
+        private void DashboardClosing(Object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         public void LoadForm(Object Form)
@@ -79,8 +85,12 @@ namespace GUI
         {
             var form = new PageLogin();
             form.Show();
-            this.Close();
-            
+            this.Dispose();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            LoadForm(new PageUser());
         }
     }
 }
