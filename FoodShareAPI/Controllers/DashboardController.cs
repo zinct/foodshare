@@ -21,7 +21,20 @@ namespace FoodShareAPI.Controllers
         {
             try
             {
-                return Ok(new Dashboard() { TotalFoodDistributeds = 2, TotalFoodGoodConditions = 3, TotalFoodNotGoods = 5, TotalFoods = 5 } );
+                var totalGoodFood = _dbContext.Foods.Where(food => food.Status == "good").Count();
+                var totalBadFood = _dbContext.Foods.Where(food => food.Status == "bad").Count();
+                var totalFood = _dbContext.Foods.Count();
+                var totalDistributed = _dbContext.Transactions.Sum(transaction => transaction.Amount);
+
+                return Ok(
+                    new Dashboard() 
+                        { 
+                            TotalFoodDistributeds = totalDistributed,
+                            TotalFoodGoodConditions = totalGoodFood,
+                            TotalFoodNotGoods = totalBadFood,
+                            TotalFoods = totalFood,
+                        } 
+                    );
             }
             catch (Exception e)
             {

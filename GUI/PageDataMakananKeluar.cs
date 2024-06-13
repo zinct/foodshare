@@ -29,7 +29,7 @@ namespace GUI
             MakananKeluarGrid.ClearSelection();
             MakananKeluarGrid.Rows.Clear();
 
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Get("/food/good-condition");
 
             if (!response.IsSuccessStatusCode)

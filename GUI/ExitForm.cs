@@ -35,7 +35,7 @@ namespace GUI
             {
                 int quantity = int.Parse(InputDistribution.Text);
 
-                ClientAPI api = new ClientAPI();
+                ClientAPI api = ClientAPI.Instance;
                 DistributeRequest body = new DistributeRequest {Amount = quantity};
                 HttpResponseMessage response = await api.PostAsJson("/food/distributed/" + food.Id, body);
 

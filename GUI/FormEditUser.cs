@@ -34,7 +34,7 @@ namespace GUI
             string username = textBox2.Text;
             string password = textBox3.Text;
 
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             CreateUserRequest body = new CreateUserRequest { Name = name, Username = username, Password = password };
             HttpResponseMessage response = await api.PutAsJson("/user/" + User.Id, body);
 

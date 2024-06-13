@@ -44,7 +44,7 @@ namespace GUI
 
         private async void LoadNumber()
         {
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Get("/dashboard");
 
             if (!response.IsSuccessStatusCode)

@@ -24,36 +24,26 @@ namespace GUI
 
         private async void AddButton_Click(object sender, EventArgs e)
         {
-            try
+            String username = (String)textBox1.Text;
+            String password = (String)textBox2.Text;
+
+            ClientAPI api = ClientAPI.Instance;
+            LoginRequest body = new LoginRequest { Username = username, Password = password };
+            HttpResponseMessage responseMassage = await api.PostAsJson("/auth/login", body);
+
+            Console.WriteLine(responseMassage.ToString());  
+
+            if (responseMassage.StatusCode == HttpStatusCode.InternalServerError)
             {
-                String username = (String)textBox1.Text;
-                String password = (String)textBox2.Text;
 
-                ClientAPI api = new ClientAPI();
-                LoginRequest body = new LoginRequest { Username = username, Password = password };
-                HttpResponseMessage responseMassage = await api.PostAsJson("/auth/login", body);
-
-                Console.WriteLine(responseMassage.ToString());  
-
-                if (responseMassage.StatusCode == HttpStatusCode.InternalServerError)
-                {
-
-                    MessageBox.Show("Username atau Password salah.");
-                    throw new Exception("Terjadi kesalahan ketika melakukan request ke API");
-
-                }
-                else if (responseMassage.StatusCode == HttpStatusCode.OK)
-                {
-                    new DashBoard().Show();
-                    Dispose();
-                }
+                MessageBox.Show("Username atau Password salah.");
 
             }
-            catch (Exception ex)
+            else if (responseMassage.StatusCode == HttpStatusCode.OK)
             {
-                throw;
+                new DashBoard().Show();
+                Dispose();
             }
- 
         }
     }
 }

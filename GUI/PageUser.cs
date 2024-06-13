@@ -27,7 +27,7 @@ namespace GUI
 
         public async void FetchData()
         {
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Get("/user");
 
             if (!response.IsSuccessStatusCode)
@@ -62,7 +62,7 @@ namespace GUI
                 MessageBox.Show("Pilih Data terlebih dahulu!", "Terjadi Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Delete("/user/" + userList[Datatable.CurrentCell.RowIndex].Id);
 
             if (!response.IsSuccessStatusCode)

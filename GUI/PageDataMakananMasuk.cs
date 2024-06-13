@@ -48,7 +48,7 @@ namespace GUI
             String url = "/food/" + selectedId;
             Console.WriteLine(foodList[selectedIndex].Name);
 
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Delete(url);
 
             if (!response.IsSuccessStatusCode)
@@ -66,7 +66,7 @@ namespace GUI
             foodList.Clear();
             MakananMasukGrid.ClearSelection();
             MakananMasukGrid.Rows.Clear();
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Get("/food");
             if (!response.IsSuccessStatusCode)
             {

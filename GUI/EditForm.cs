@@ -44,7 +44,7 @@ namespace GUI
                 }
 
                 FoodBody body = new FoodBody { Name = namaMakanan, Expire = expire, Conditions = conditions, Source = source, Category = category, Quantity = int.Parse(quantity) };
-                ClientAPI api = new ClientAPI();
+                ClientAPI api = ClientAPI.Instance;
                 HttpResponseMessage response = await api.PutAsJson("/food/" + food.Id, body);
                 String msg = response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine(msg);

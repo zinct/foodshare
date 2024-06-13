@@ -33,7 +33,7 @@ namespace GUI
 
         public async void FetchData()
         {
-            ClientAPI api = new ClientAPI();
+            ClientAPI api = ClientAPI.Instance;
             HttpResponseMessage response = await api.Get("/transaction");
 
             if (!response.IsSuccessStatusCode)
