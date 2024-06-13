@@ -37,25 +37,7 @@ namespace GUI
 
         private async void PageDataMakananMasuk_Load(object sender, EventArgs e)
         {
-            ClientAPI api = new ClientAPI();
-            HttpResponseMessage response = await api.Get("/food");
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception("Terjadi kesalahan dalam melakukan request ke API");
-                
-            }
-            String responseJSON =  await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseJSON);
-            List<Food> foods = JsonConvert.DeserializeObject<List<Food>>(responseJSON);
-
-            int i = 1;
-            foreach (Food food in foods)
-            {
-                foodList.Add(food);
-                MakananMasukGrid.Rows.Add(i, food.Name, food.CreatedAt, food.Expire, food.Conditions, food.Source, food.Status, food.Quantity);
-                i++;
-            }
-            
+            LoadData();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,7 +48,7 @@ namespace GUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddForm addForm = new AddForm();
+            AddForm addForm = new AddForm(this);
             addForm.Show();
         }
 
@@ -83,6 +65,34 @@ namespace GUI
             {
                 throw new Exception("Terjadi kesalahan dalam melakukan penghapusan data");
 
+            } else
+            {
+                LoadData();
+            }
+        }
+
+        public async void LoadData()
+        {
+            foodList.Clear();
+            MakananMasukGrid.ClearSelection();
+            MakananMasukGrid.Rows.Clear();
+            ClientAPI api = new ClientAPI();
+            HttpResponseMessage response = await api.Get("/food");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Terjadi kesalahan dalam melakukan request ke API");
+
+            }
+            String responseJSON = await response.Content.ReadAsStringAsync();
+            
+            List<Food> foods = JsonConvert.DeserializeObject<List<Food>>(responseJSON);
+
+            int i = 1;
+            foreach (Food food in foods)
+            {
+                foodList.Add(food);
+                MakananMasukGrid.Rows.Add(i, food.Name, food.CreatedAt, food.Expire, food.Conditions, food.Source, food.Status, food.Quantity);
+                i++;
             }
         }
     }
