@@ -141,6 +141,7 @@ namespace FoodShareAPI.Controllers
                 food.Source = foodRequest.Source;
                 food.Category = foodRequest.Category;
                 food.Quantity = foodRequest.Quantity;
+                food.Conditions = foodRequest.Conditions;
 
                 _dbContext.SaveChanges();
                 return NoContent();
