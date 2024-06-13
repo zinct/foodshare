@@ -76,8 +76,10 @@ namespace GUI
             foodList.Clear();
             MakananMasukGrid.ClearSelection();
             MakananMasukGrid.Rows.Clear();
+
             ClientAPI api = new ClientAPI();
             HttpResponseMessage response = await api.Get("/food");
+
             if (!response.IsSuccessStatusCode)
             {
                 throw new Exception("Terjadi kesalahan dalam melakukan request ke API");
@@ -91,7 +93,16 @@ namespace GUI
             foreach (Food food in foods)
             {
                 foodList.Add(food);
-                MakananMasukGrid.Rows.Add(i, food.Name, food.CreatedAt, food.Expire, food.Conditions, food.Source, food.Status, food.Quantity);
+                MakananMasukGrid.Rows.Add(
+                    i, 
+                    food.Name, 
+                    food.CreatedAt, 
+                    food.Expire, 
+                    food.Conditions, 
+                    food.Source, 
+                    food.Status, 
+                    food.Quantity
+                );
                 i++;
             }
         }

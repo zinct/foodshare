@@ -43,7 +43,7 @@ namespace FoodShareCore.Utilities
             }  
         }
 
-        public static String convertToyyyyMMddDateString(String date)
+        public static String ConvertDateToApprovedFormatString(String date)
         {
             return date.Substring(6, 4) + "-" + date.Substring(3, 2) + "-" + date.Substring(0, 2);
         }

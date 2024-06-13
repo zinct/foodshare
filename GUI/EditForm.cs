@@ -29,7 +29,7 @@ namespace GUI
         private void LoadData()
         {
             namaMakananTb.Text = food.Name;
-            expiredTb.Text = DateUtilitites.convertToyyyyMMddDateString(food.Expire.ToString());
+            expiredTb.Text = DateUtilitites.ConvertDateToApprovedFormatString(food.Expire.ToString());
             kondisiTb.Text = food.Conditions;
             sumberTb.Text = food.Source;
             kategoriTb.Text = food.Category;
@@ -40,7 +40,7 @@ namespace GUI
         {
             String expire = expiredTb.Text;
             String namaMakanan = namaMakananTb.Text;
-            String conditions = kondisiTb.Text;
+            String condition = kondisiTb.Text;
             String source = sumberTb.Text;
             String category = kategoriTb.Text;
             String quantity = jumlahTb.Text;
@@ -52,7 +52,12 @@ namespace GUI
                     throw new FormatException("Format Tanggal Pada Expire Salah 'yyyy-MM-dd'");
                 }
 
-                FoodBody body = new FoodBody { Name = namaMakanan, Expire = expire, Conditions = conditions, Source = source, Category = category, Quantity = int.Parse(quantity) };
+                if (namaMakanan.Any(c => char.IsDigit(c)) || condition.Any(c => char.IsDigit(c)) || source.Any(c => char.IsDigit(c)) || category.Any(c => char.IsDigit(c)))
+                {
+                    throw new FormatException("Tidak Boleh Ada Angka Pada TextBox yang Sekirannya Inputnya String");
+                }
+
+                FoodBody body = new FoodBody { Name = namaMakanan, Expire = expire, Conditions = condition, Source = source, Category = category, Quantity = int.Parse(quantity) };
                 ClientAPI api = new ClientAPI();
                 HttpResponseMessage response = await api.PutAsJson("/food/" + food.Id, body);
                 String msg = response.Content.ReadAsStringAsync().Result;
