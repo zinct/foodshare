@@ -84,6 +84,7 @@ namespace FoodShareAPI.Controllers
                         Source = foodRequest.Source,
                         Category = foodRequest.Category,
                         Quantity = foodRequest.Quantity,
+                        Status = "pending",
                     }
                 );
                 _dbContext.SaveChanges();
