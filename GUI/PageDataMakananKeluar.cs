@@ -23,7 +23,7 @@ namespace GUI
             InitializeComponent();
         }
 
-        public async void Dataload()
+        public async void DataLoad()
         {
             goodConditions.Clear();
             MakananKeluarGrid.ClearSelection();
@@ -53,7 +53,7 @@ namespace GUI
 
         private async void PageDataMakananKeluar_Load(object sender, EventArgs e)
         {
-            Dataload();
+            DataLoad();
         }
 
         private void MakananKeluarGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)

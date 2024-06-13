@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,7 +34,21 @@ namespace GUI
         {
             try
             {
-                int quantity = int.Parse(InputDistribution.Text);
+                // Validasi jika input lebih besar dari 0
+                if (!int.TryParse(InputDistribution.Text, out int quantity) || quantity <= 0)
+                {
+                    MessageBox.Show("Masukkan jumlah distribusi yang valid.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InputDistribution.Text = string.Empty; 
+                    return;
+                }
+
+                // Validasi jika jumlah distribusi melebihi stok yang tersedia
+                if (quantity > food.Quantity)
+                {
+                    MessageBox.Show($"Jumlah distribusi tidak boleh lebih dari {food.Quantity}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InputDistribution.Text = string.Empty; 
+                    return;
+                }
 
                 ClientAPI api = new ClientAPI();
                 DistributeRequest body = new DistributeRequest {Amount = quantity};
@@ -52,14 +67,18 @@ namespace GUI
             {
                 throw;
             }
-            page.Dataload();
+            page.DataLoad();
             MessageBox.Show("Distribusi berhasil!", "INFORMASI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InputDistribution_TextChanged(object sender, EventArgs e)
         {
-
-
+            // Validasi jika input bukan angka
+            if (!Regex.IsMatch(InputDistribution.Text, "^[0-9]*$"))
+            {
+                MessageBox.Show("Inputan berupa Angka!.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                InputDistribution.Text = string.Empty; //Clear input
+            }
         }
     }
 }
