@@ -206,7 +206,8 @@ namespace FoodShareAPI.Controllers
                 _dbContext.Transactions.Add(new Transaction()
                 {
                     FoodId = food.Id,
-                    UserId = id,
+                    UserId = 1,
+                    Amount = request.Amount,
                 });
                 food.Quantity = food.Quantity - request.Amount;
 

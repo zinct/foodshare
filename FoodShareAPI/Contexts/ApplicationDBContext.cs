@@ -29,6 +29,8 @@ public class ApplicationDBContext : DbContext
 
         builder.Entity<Transaction>(entity => {
             entity.ToTable("transactions");
+            entity.HasOne(e => e.User);
+            entity.HasOne(e => e.Food);
             entity.Property(property => property.CreatedAt)
                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
         });
