@@ -28,143 +28,184 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             SubmitButton = new Button();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            JumlahTB = new TextBox();
+            label2 = new Label();
+            kategoriTb = new TextBox();
+            label7 = new Label();
+            jumlahTb = new TextBox();
+            Kategori = new Label();
+            label6 = new Label();
+            sumberTb = new TextBox();
+            expiredTb = new TextBox();
+            kondisiTb = new TextBox();
             label4 = new Label();
             label3 = new Label();
-            label2 = new Label();
-            NamaMakananTB = new TextBox();
-            label5 = new Label();
+            namaMakananTb = new TextBox();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(165, 82);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 15);
-            label1.TabIndex = 0;
             // 
             // SubmitButton
             // 
             SubmitButton.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            SubmitButton.Location = new Point(278, 229);
-            SubmitButton.Margin = new Padding(3, 2, 3, 2);
+            SubmitButton.Location = new Point(318, 325);
             SubmitButton.Name = "SubmitButton";
-            SubmitButton.Size = new Size(132, 34);
+            SubmitButton.Size = new Size(151, 45);
             SubmitButton.TabIndex = 19;
             SubmitButton.Text = "Edit";
             SubmitButton.UseVisualStyleBackColor = true;
             SubmitButton.Click += SubmitButton_Click;
             // 
-            // dateTimePicker2
+            // label2
             // 
-            dateTimePicker2.Location = new Point(291, 134);
-            dateTimePicker2.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(316, 23);
-            dateTimePicker2.TabIndex = 18;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(121, 166);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 28);
+            label2.TabIndex = 34;
+            label2.Text = "Sumber";
             // 
-            // dateTimePicker1
+            // kategoriTb
             // 
-            dateTimePicker1.Location = new Point(291, 106);
-            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(316, 23);
-            dateTimePicker1.TabIndex = 17;
+            kategoriTb.Location = new Point(348, 210);
+            kategoriTb.Name = "kategoriTb";
+            kategoriTb.Size = new Size(360, 27);
+            kategoriTb.TabIndex = 33;
             // 
-            // JumlahTB
+            // label7
             // 
-            JumlahTB.Location = new Point(291, 164);
-            JumlahTB.Margin = new Padding(3, 2, 3, 2);
-            JumlahTB.Name = "JumlahTB";
-            JumlahTB.Size = new Size(316, 23);
-            JumlahTB.TabIndex = 16;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(121, 247);
+            label7.Name = "label7";
+            label7.Size = new Size(80, 28);
+            label7.TabIndex = 32;
+            label7.Text = "Jumlah";
+            // 
+            // jumlahTb
+            // 
+            jumlahTb.Location = new Point(348, 248);
+            jumlahTb.Name = "jumlahTb";
+            jumlahTb.Size = new Size(360, 27);
+            jumlahTb.TabIndex = 31;
+            // 
+            // Kategori
+            // 
+            Kategori.AutoSize = true;
+            Kategori.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Kategori.Location = new Point(121, 206);
+            Kategori.Name = "Kategori";
+            Kategori.Size = new Size(93, 28);
+            Kategori.TabIndex = 30;
+            Kategori.Text = "Kategori";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(123, 171);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 28);
+            label6.TabIndex = 29;
+            // 
+            // sumberTb
+            // 
+            sumberTb.Location = new Point(348, 166);
+            sumberTb.Name = "sumberTb";
+            sumberTb.Size = new Size(360, 27);
+            sumberTb.TabIndex = 28;
+            // 
+            // expiredTb
+            // 
+            expiredTb.Location = new Point(348, 86);
+            expiredTb.Name = "expiredTb";
+            expiredTb.Size = new Size(360, 27);
+            expiredTb.TabIndex = 27;
+            // 
+            // kondisiTb
+            // 
+            kondisiTb.Location = new Point(348, 126);
+            kondisiTb.Name = "kondisiTb";
+            kondisiTb.Size = new Size(360, 27);
+            kondisiTb.TabIndex = 26;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(94, 160);
+            label4.Location = new Point(123, 126);
             label4.Name = "label4";
-            label4.Size = new Size(66, 21);
-            label4.TabIndex = 15;
-            label4.Text = "Jumlah";
+            label4.Size = new Size(82, 28);
+            label4.TabIndex = 25;
+            label4.Text = "Kondisi";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(94, 133);
+            label3.Location = new Point(123, 86);
             label3.Name = "label3";
-            label3.Size = new Size(172, 21);
-            label3.TabIndex = 14;
+            label3.Size = new Size(212, 28);
+            label3.TabIndex = 24;
             label3.Text = "Tanggal Kadaluwarsa";
             // 
-            // label2
+            // namaMakananTb
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(94, 104);
-            label2.Name = "label2";
-            label2.Size = new Size(125, 21);
-            label2.TabIndex = 13;
-            label2.Text = "Tanggal Masuk";
+            namaMakananTb.Location = new Point(348, 45);
+            namaMakananTb.Name = "namaMakananTb";
+            namaMakananTb.Size = new Size(360, 27);
+            namaMakananTb.TabIndex = 23;
             // 
-            // NamaMakananTB
+            // label1
             // 
-            NamaMakananTB.Location = new Point(291, 75);
-            NamaMakananTB.Margin = new Padding(3, 2, 3, 2);
-            NamaMakananTB.Name = "NamaMakananTB";
-            NamaMakananTB.Size = new Size(316, 23);
-            NamaMakananTB.TabIndex = 12;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(94, 75);
-            label5.Name = "label5";
-            label5.Size = new Size(131, 21);
-            label5.TabIndex = 11;
-            label5.Text = "Nama Makanan";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(123, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(161, 28);
+            label1.TabIndex = 22;
+            label1.Text = "Nama Makanan";
             // 
             // EditForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
-            Controls.Add(SubmitButton);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(JumlahTB);
+            ClientSize = new Size(800, 451);
+            Controls.Add(label2);
+            Controls.Add(kategoriTb);
+            Controls.Add(label7);
+            Controls.Add(jumlahTb);
+            Controls.Add(Kategori);
+            Controls.Add(label6);
+            Controls.Add(sumberTb);
+            Controls.Add(expiredTb);
+            Controls.Add(kondisiTb);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(NamaMakananTB);
-            Controls.Add(label5);
+            Controls.Add(namaMakananTb);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
+            Controls.Add(SubmitButton);
             Name = "EditForm";
             Text = "EditForm";
+            Load += EditForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Button SubmitButton;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox JumlahTB;
+        private Label label2;
+        private TextBox kategoriTb;
+        private Label label7;
+        private TextBox jumlahTb;
+        private Label Kategori;
+        private Label label6;
+        private TextBox sumberTb;
+        private TextBox expiredTb;
+        private TextBox kondisiTb;
         private Label label4;
         private Label label3;
-        private Label label2;
-        private TextBox NamaMakananTB;
-        private Label label5;
+        private TextBox namaMakananTb;
+        private Label label1;
     }
 }

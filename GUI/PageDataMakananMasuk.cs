@@ -42,7 +42,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EditForm editForm = new EditForm();
+            EditForm editForm = new EditForm(this, foodList[selectedIndex]);
             editForm.Show();
         }
 

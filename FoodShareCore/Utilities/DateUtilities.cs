@@ -42,5 +42,10 @@ namespace FoodShareCore.Utilities
                 return false;
             }  
         }
+
+        public static String convertToyyyyMMddDateString(String date)
+        {
+            return date.Substring(6, 4) + "-" + date.Substring(3, 2) + "-" + date.Substring(0, 2);
+        }
     }
 }
