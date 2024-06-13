@@ -12,7 +12,6 @@ namespace FoodShareAPI.Requests
         public string Source { get; set; }
         public string Category { get; set; }
         public int Quantity { get; set; }
-        public string Status { get; set; }
     }
 }
 
