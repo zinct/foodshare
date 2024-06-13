@@ -159,7 +159,7 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPost("change-status/{id}")]
-        public ActionResult ChangeStatus(int id, String status)
+        public ActionResult ChangeStatus(int id, ChangeStatusRequest request)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace FoodShareAPI.Controllers
                     throw new ArgumentException();
                 }
 
-                food.Status = status;
+                food.Status = request.status;
 
                 _dbContext.SaveChanges();
                 return NoContent();

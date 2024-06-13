@@ -33,8 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageDataMakananKeluar));
             MakananKeluarGrid = new DataGridView();
-            label1 = new Label();
-            DistributionButton = new Button();
             No = new DataGridViewTextBoxColumn();
             NamaMakanan = new DataGridViewTextBoxColumn();
             TanggalKadaluwarsa = new DataGridViewTextBoxColumn();
@@ -42,6 +40,8 @@
             Sumber = new DataGridViewTextBoxColumn();
             Kategori = new DataGridViewTextBoxColumn();
             Jumlah = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            DistributionButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MakananKeluarGrid).BeginInit();
             SuspendLayout();
             // 
@@ -93,30 +93,6 @@
             MakananKeluarGrid.TabIndex = 3;
             MakananKeluarGrid.CellContentClick += MakananKeluarGrid_CellContentClick;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(30, 49);
-            label1.Name = "label1";
-            label1.Size = new Size(308, 32);
-            label1.TabIndex = 5;
-            label1.Text = "DATA MAKANAN KELUAR";
-            label1.Click += label1_Click;
-            // 
-            // DistributionButton
-            // 
-            DistributionButton.FlatStyle = FlatStyle.Flat;
-            DistributionButton.ForeColor = Color.Transparent;
-            DistributionButton.Image = (Image)resources.GetObject("DistributionButton.Image");
-            DistributionButton.Location = new Point(784, 49);
-            DistributionButton.Margin = new Padding(3, 2, 3, 2);
-            DistributionButton.Name = "DistributionButton";
-            DistributionButton.Size = new Size(202, 51);
-            DistributionButton.TabIndex = 6;
-            DistributionButton.UseVisualStyleBackColor = true;
-            DistributionButton.Click += EditButton_Click;
-            // 
             // No
             // 
             No.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -124,7 +100,7 @@
             No.MinimumWidth = 6;
             No.Name = "No";
             No.ReadOnly = true;
-            No.Width = 57;
+            No.Width = 68;
             // 
             // NamaMakanan
             // 
@@ -145,20 +121,26 @@
             // Kondisi
             // 
             Kondisi.HeaderText = "Kondisi";
+            Kondisi.MinimumWidth = 6;
             Kondisi.Name = "Kondisi";
             Kondisi.ReadOnly = true;
+            Kondisi.Width = 125;
             // 
             // Sumber
             // 
             Sumber.HeaderText = "Sumber";
+            Sumber.MinimumWidth = 6;
             Sumber.Name = "Sumber";
             Sumber.ReadOnly = true;
+            Sumber.Width = 125;
             // 
             // Kategori
             // 
             Kategori.HeaderText = "Kategori";
+            Kategori.MinimumWidth = 6;
             Kategori.Name = "Kategori";
             Kategori.ReadOnly = true;
+            Kategori.Width = 125;
             // 
             // Jumlah
             // 
@@ -168,11 +150,35 @@
             Jumlah.Name = "Jumlah";
             Jumlah.ReadOnly = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(30, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(382, 41);
+            label1.TabIndex = 5;
+            label1.Text = "DATA MAKANAN KELUAR";
+            label1.Click += label1_Click;
+            // 
+            // DistributionButton
+            // 
+            DistributionButton.FlatStyle = FlatStyle.Flat;
+            DistributionButton.ForeColor = Color.Transparent;
+            DistributionButton.Image = (Image)resources.GetObject("DistributionButton.Image");
+            DistributionButton.Location = new Point(784, 49);
+            DistributionButton.Margin = new Padding(3, 2, 3, 2);
+            DistributionButton.Name = "DistributionButton";
+            DistributionButton.Size = new Size(202, 51);
+            DistributionButton.TabIndex = 6;
+            DistributionButton.UseVisualStyleBackColor = true;
+            DistributionButton.Click += EditButton_Click;
+            // 
             // PageDataMakananKeluar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 594);
+            ClientSize = new Size(1195, 594);
             Controls.Add(DistributionButton);
             Controls.Add(label1);
             Controls.Add(MakananKeluarGrid);

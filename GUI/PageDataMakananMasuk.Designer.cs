@@ -35,9 +35,6 @@
             label1 = new Label();
             label2 = new Label();
             MakananMasukGrid = new DataGridView();
-            DeleteButton = new Button();
-            EditButton = new Button();
-            AddButton = new Button();
             ID = new DataGridViewTextBoxColumn();
             NamaMakanan = new DataGridViewTextBoxColumn();
             TanggalMasuk = new DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             Source = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
             Jumlah = new DataGridViewTextBoxColumn();
+            DeleteButton = new Button();
+            EditButton = new Button();
+            AddButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MakananMasukGrid).BeginInit();
             SuspendLayout();
             // 
@@ -120,42 +120,6 @@
             MakananMasukGrid.TabIndex = 2;
             MakananMasukGrid.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // DeleteButton
-            // 
-            DeleteButton.FlatStyle = FlatStyle.Flat;
-            DeleteButton.ForeColor = Color.Transparent;
-            DeleteButton.Image = (Image)resources.GetObject("DeleteButton.Image");
-            DeleteButton.Location = new Point(959, 65);
-            DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(147, 68);
-            DeleteButton.TabIndex = 3;
-            DeleteButton.UseVisualStyleBackColor = true;
-            DeleteButton.Click += DeleteButton_Click;
-            // 
-            // EditButton
-            // 
-            EditButton.FlatStyle = FlatStyle.Flat;
-            EditButton.ForeColor = Color.Transparent;
-            EditButton.Image = (Image)resources.GetObject("EditButton.Image");
-            EditButton.Location = new Point(808, 65);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(144, 68);
-            EditButton.TabIndex = 4;
-            EditButton.UseVisualStyleBackColor = true;
-            EditButton.Click += button2_Click;
-            // 
-            // AddButton
-            // 
-            AddButton.FlatStyle = FlatStyle.Flat;
-            AddButton.ForeColor = Color.Transparent;
-            AddButton.Image = (Image)resources.GetObject("AddButton.Image");
-            AddButton.Location = new Point(661, 65);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(141, 68);
-            AddButton.TabIndex = 5;
-            AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += AddButton_Click;
-            // 
             // ID
             // 
             ID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -220,6 +184,42 @@
             Jumlah.MinimumWidth = 6;
             Jumlah.Name = "Jumlah";
             Jumlah.ReadOnly = true;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.FlatStyle = FlatStyle.Flat;
+            DeleteButton.ForeColor = Color.Transparent;
+            DeleteButton.Image = (Image)resources.GetObject("DeleteButton.Image");
+            DeleteButton.Location = new Point(959, 65);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(147, 68);
+            DeleteButton.TabIndex = 3;
+            DeleteButton.UseVisualStyleBackColor = true;
+            DeleteButton.Click += DeleteButton_Click;
+            // 
+            // EditButton
+            // 
+            EditButton.FlatStyle = FlatStyle.Flat;
+            EditButton.ForeColor = Color.Transparent;
+            EditButton.Image = (Image)resources.GetObject("EditButton.Image");
+            EditButton.Location = new Point(808, 65);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(144, 68);
+            EditButton.TabIndex = 4;
+            EditButton.UseVisualStyleBackColor = true;
+            EditButton.Click += button2_Click;
+            // 
+            // AddButton
+            // 
+            AddButton.FlatStyle = FlatStyle.Flat;
+            AddButton.ForeColor = Color.Transparent;
+            AddButton.Image = (Image)resources.GetObject("AddButton.Image");
+            AddButton.Location = new Point(661, 65);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(141, 68);
+            AddButton.TabIndex = 5;
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // PageDataMakananMasuk
             // 

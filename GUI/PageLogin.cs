@@ -19,7 +19,7 @@ namespace GUI
 
         private void label3_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private async void AddButton_Click(object sender, EventArgs e)
@@ -44,6 +44,11 @@ namespace GUI
                 new DashBoard().Show();
                 Dispose();
             }
+        }
+
+        private void PageLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
