@@ -53,7 +53,7 @@ namespace GUI
             }
 
             String responseJSON = await response.Content.ReadAsStringAsync();
-            dashboardResponse foods = JsonConvert.DeserializeObject<dashboardResponse>(responseJSON);
+            DashboardResponse foods = JsonConvert.DeserializeObject<DashboardResponse>(responseJSON);
 
             label1.Text = foods.TotalFoods.ToString();
             label2.Text = foods.TotalFoodGoodConditions.ToString();

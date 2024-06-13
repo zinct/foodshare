@@ -136,7 +136,7 @@
   <data name="DeleteButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHgAAAAmCAYAAAAP4F9VAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAqtJREFUeF7tnL9uE0EQh+8R8gg8Sh7BZRI3FNRAizgTS4jSOA0iDQRFShdTOp0l
+        EAAACxABrSO9dQAAAqtJREFUeF7tnL9uE0EQh+8R8gg8Sh7BZRI3FNRAizgTS4jSOA0iDQRFShdTOp0l
         GjdBuDMdpqKgoQFZ8dq3zG9869v741jpdscz0qfkdvYm1n23c+dik1TDHL08XBynZ3cnndnipGOVGEgn
         9PNiftR9lGush211D0z7tF8/WYmKdqdvW88Pcq3rgNz8Lmg+SYmMdFKSrCtXILSSWS76duMEJXrm9D6V
         3B2nn5qSigDoZTlZtF/ps1cus6RhUBGEChaOChaOChaOChaOChaOChZO+IKfvLHmfMA//XHTu7Lm9YfS
@@ -153,7 +153,7 @@
   <data name="EditButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHgAAAAmCAYAAAAP4F9VAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAlJJREFUeF7tm7tKQ0EQhs8j+Ag+RiARUlpa5ERLraOlgp2FVhZewFJMa6xjq6RU
+        EAAACxABrSO9dQAAAlJJREFUeF7tm7tKQ0EQhs8j+Ag+RiARUlpa5ERLraOlgp2FVhZewFJMa6xjq6RU
         MJWeEJSgiFcU8YIgyLr/mgmbZL1hYWacHz5IdnZT5MvsnhQbdSaTjGQzB/HiQC3fyNTyRuFAXE3X4rVU
         MtTf1NidbHWob6CeXwh/gMIF25gLcNnU+h4M4FcQWqBwJK62SdbOlQc62clNJSP9oQmKAJJcNkon+WKw
         qPDHPixHevbKJW3/CVnB4aIiAxUsHBUsHBUsHBUsHBUsHBUsHHaCc0cFM3u2YgbrY60xvPbHzl6uzPTp
@@ -169,7 +169,7 @@
   <data name="AddButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHgAAAAmCAYAAAAP4F9VAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAq9JREFUeF7tnL9OHDEQh/cR8gh5lDzIwV2HUkaUKGVEeZeSpCAS0CZtaEMLooPy
+        DgAACw4BQL7hQQAAAq9JREFUeF7tnL9OHDEQh/cR8gh5lDzIwV2HUkaUKGVEeZeSpCAS0CZtaEMLooPy
         QgtCmz8cCSRk48/cSHN7BhEtF9mj+Umfzrtje1f+eextfFVbvUH9rLd8Plru1+Olft04+RO8Ogy/m4NB
         /XRq47xC8Em/Xw/bjZ3iGOLl1NZbcaN3OwtSDZzCIKNnTPbMNckwmsu6nQg6BuB7qgofVO9SQad8+Fiu
         fO81zbhK3HQM4QYbxw02jhtsHDfYOG6wcdxg42Rj8IvVr82bt5M5Xq1/T9bvyvbOZXN0/CsZewi879nZ

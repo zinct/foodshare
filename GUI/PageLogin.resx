@@ -319,10 +319,10 @@
         yt1zlRcqBGv0xvuk903vow7MvpuCF4MBAAAACN/73v8HtATrbV3Kk60AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AddButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="LoginButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAAA1CAYAAAB/cGaVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAABBBJREFUeF7tmT+PG0UYh/0R8hHyvS5emwpRJYgSUQIlUAIl0OKUUJ0ELSgdKU1a
+        DwAACw8BkvkDpQAABBBJREFUeF7tmT+PG0UYh/0R8hHyvS5emwpRJYgSUQIlUAIl0OKUUJ0ELSgdKU1a
         QrIk5PgX4JjHt680NzcG69B5dqTnJz2yvfPu7F7x7Duzt9iX9Xq8NQzj3eVq3AyrcZs+z0XkOCTnHqTP
         TXJwNSl5eCZxx3xCEWnGdrl8cm/Sc39S172dik+Lk0VkBtCVcXTS9XImeV0qi8ybbVXiOxdr7toJIjIv
         TidtLzLteWuFIjJH8j1xOuDSWaQvRv5TtFguf1xXBkVk5pzQhdOXTTkgIh0wPL3vyyuRftnSgWsDItIB

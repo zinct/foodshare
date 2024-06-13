@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI.Models
 {
-    internal class dashboardResponse
+    internal class DashboardResponse
     {
         public int TotalFoods { get; set; }
         public int TotalFoodGoodConditions { get; set; }

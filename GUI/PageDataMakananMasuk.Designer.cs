@@ -50,9 +50,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(321, 266);
+            label1.Location = new Point(321, 301);
             label1.Name = "label1";
-            label1.Size = new Size(0, 30);
+            label1.Size = new Size(0, 31);
             label1.TabIndex = 0;
             // 
             // label2
@@ -61,10 +61,10 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft YaHei UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(21, 29, 72);
-            label2.Location = new Point(24, 15);
+            label2.Location = new Point(24, 17);
             label2.Name = "label2";
-            label2.Padding = new Padding(4);
-            label2.Size = new Size(322, 44);
+            label2.Padding = new Padding(4, 5, 4, 5);
+            label2.Size = new Size(345, 49);
             label2.TabIndex = 1;
             label2.Text = "Data Makanan Masuk";
             label2.Click += label2_Click;
@@ -99,7 +99,7 @@
             MakananMasukGrid.DefaultCellStyle = dataGridViewCellStyle2;
             MakananMasukGrid.EnableHeadersVisualStyles = false;
             MakananMasukGrid.GridColor = Color.White;
-            MakananMasukGrid.Location = new Point(12, 108);
+            MakananMasukGrid.Location = new Point(12, 122);
             MakananMasukGrid.Margin = new Padding(3, 2, 3, 2);
             MakananMasukGrid.MultiSelect = false;
             MakananMasukGrid.Name = "MakananMasukGrid";
@@ -114,7 +114,7 @@
             MakananMasukGrid.RowHeadersVisible = false;
             MakananMasukGrid.RowHeadersWidth = 60;
             MakananMasukGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            MakananMasukGrid.Size = new Size(956, 453);
+            MakananMasukGrid.Size = new Size(956, 513);
             MakananMasukGrid.TabIndex = 2;
             MakananMasukGrid.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -125,7 +125,7 @@
             ID.MinimumWidth = 6;
             ID.Name = "ID";
             ID.ReadOnly = true;
-            ID.Width = 50;
+            ID.Width = 51;
             // 
             // NamaMakanan
             // 
@@ -164,10 +164,10 @@
             DeleteButton.FlatStyle = FlatStyle.Flat;
             DeleteButton.ForeColor = Color.Transparent;
             DeleteButton.Image = (Image)resources.GetObject("DeleteButton.Image");
-            DeleteButton.Location = new Point(839, 49);
+            DeleteButton.Location = new Point(839, 56);
             DeleteButton.Margin = new Padding(3, 2, 3, 2);
             DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(129, 51);
+            DeleteButton.Size = new Size(129, 58);
             DeleteButton.TabIndex = 3;
             DeleteButton.UseVisualStyleBackColor = true;
             DeleteButton.Click += DeleteButton_Click;
@@ -177,10 +177,10 @@
             EditButton.FlatStyle = FlatStyle.Flat;
             EditButton.ForeColor = Color.Transparent;
             EditButton.Image = (Image)resources.GetObject("EditButton.Image");
-            EditButton.Location = new Point(707, 49);
+            EditButton.Location = new Point(707, 56);
             EditButton.Margin = new Padding(3, 2, 3, 2);
             EditButton.Name = "EditButton";
-            EditButton.Size = new Size(126, 51);
+            EditButton.Size = new Size(126, 58);
             EditButton.TabIndex = 4;
             EditButton.UseVisualStyleBackColor = true;
             EditButton.Click += button2_Click;
@@ -190,20 +190,20 @@
             AddButton.FlatStyle = FlatStyle.Flat;
             AddButton.ForeColor = Color.Transparent;
             AddButton.Image = (Image)resources.GetObject("AddButton.Image");
-            AddButton.Location = new Point(578, 49);
+            AddButton.Location = new Point(578, 56);
             AddButton.Margin = new Padding(3, 2, 3, 2);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(123, 51);
+            AddButton.Size = new Size(123, 58);
             AddButton.TabIndex = 5;
             AddButton.UseVisualStyleBackColor = true;
             AddButton.Click += AddButton_Click;
             // 
             // PageDataMakananMasuk
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 251, 252);
-            ClientSize = new Size(1004, 572);
+            BackColor = Color.White;
+            ClientSize = new Size(1004, 648);
             Controls.Add(AddButton);
             Controls.Add(EditButton);
             Controls.Add(DeleteButton);
