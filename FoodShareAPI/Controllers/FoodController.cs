@@ -70,7 +70,7 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Food foodRequest)
+        public ActionResult Store(CreateFoodRequest foodRequest)
         {
             try
             {
@@ -84,6 +84,7 @@ namespace FoodShareAPI.Controllers
                         Source = foodRequest.Source,
                         Category = foodRequest.Category,
                         Quantity = foodRequest.Quantity,
+                        Status = "pending",
                     }
                 );
                 _dbContext.SaveChanges();
@@ -124,7 +125,7 @@ namespace FoodShareAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(int id, Food foodRequest)
+        public ActionResult Update(int id, CreateFoodRequest foodRequest)
         {
             try
             {
@@ -202,7 +203,13 @@ namespace FoodShareAPI.Controllers
                     throw new ApiErrorException(400, "Stok makanan tidak mencukupi");
                 }
 
+                _dbContext.Transactions.Add(new Transaction()
+                {
+                    FoodId = food.Id,
+                    UserId = id,
+                });
                 food.Quantity = food.Quantity - request.Amount;
+
 
                 _dbContext.SaveChanges();
                 return NoContent();
