@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateUser));
-            NamaMakananTB = new TextBox();
+            textBox1 = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            label3 = new Label();
             textBox2 = new TextBox();
+            label3 = new Label();
+            textBox3 = new TextBox();
             AddButton = new Button();
             label4 = new Label();
             SuspendLayout();
             // 
-            // NamaMakananTB
+            // textBox1
             // 
-            NamaMakananTB.Location = new Point(303, 133);
-            NamaMakananTB.Margin = new Padding(3, 2, 3, 2);
-            NamaMakananTB.Name = "NamaMakananTB";
-            NamaMakananTB.Size = new Size(316, 23);
-            NamaMakananTB.TabIndex = 3;
+            textBox1.Location = new Point(303, 133);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(316, 23);
+            textBox1.TabIndex = 3;
             // 
             // label1
             // 
@@ -67,13 +67,13 @@
             label2.TabIndex = 4;
             label2.Text = "Username";
             // 
-            // textBox1
+            // textBox2
             // 
-            textBox1.Location = new Point(303, 191);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(316, 23);
-            textBox1.TabIndex = 5;
+            textBox2.Location = new Point(303, 191);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(316, 23);
+            textBox2.TabIndex = 5;
             // 
             // label3
             // 
@@ -85,20 +85,20 @@
             label3.TabIndex = 6;
             label3.Text = "Password";
             // 
-            // textBox2
+            // textBox3
             // 
-            textBox2.Location = new Point(303, 249);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(316, 23);
-            textBox2.TabIndex = 7;
+            textBox3.Location = new Point(303, 249);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(316, 23);
+            textBox3.TabIndex = 7;
             // 
             // AddButton
             // 
             AddButton.FlatStyle = FlatStyle.Flat;
             AddButton.ForeColor = Color.Transparent;
             AddButton.Image = (Image)resources.GetObject("AddButton.Image");
-            AddButton.Location = new Point(322, 331);
+            AddButton.Location = new Point(332, 333);
             AddButton.Margin = new Padding(3, 2, 3, 2);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(123, 51);
@@ -126,11 +126,11 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label4);
             Controls.Add(AddButton);
-            Controls.Add(textBox2);
+            Controls.Add(textBox3);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(textBox2);
             Controls.Add(label2);
-            Controls.Add(NamaMakananTB);
+            Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "FormCreateUser";
             Text = "v";
@@ -140,12 +140,12 @@
 
         #endregion
 
-        private TextBox NamaMakananTB;
+        private TextBox textBox1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private Label label3;
         private TextBox textBox2;
+        private Label label3;
+        private TextBox textBox3;
         private Button AddButton;
         private Label label4;
     }
