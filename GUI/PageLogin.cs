@@ -7,6 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FoodShareAPI.Requests;
+using FoodShareAPI.Controllers;
+using Microsoft.VisualBasic.Logging;
+using FoodShareCore.API;
+using Newtonsoft.Json;
+using GUI.Models;
+using System.Xml.Linq;
+using System.Net;
 
 namespace GUI
 {
@@ -28,10 +36,38 @@ namespace GUI
            
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private async void AddButton_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            new DashBoard().Show();
+            try
+            {
+                String username = (String)textBox1.Text;
+                String password = (String)textBox2.Text;
+
+                ClientAPI api = new ClientAPI();
+                LoginRequest body = new LoginRequest { Username = username, Password = password };
+                HttpResponseMessage responseMassage = await api.PostAsJson("/auth/login", body);
+
+                Console.WriteLine(responseMassage.ToString());  
+
+                if (responseMassage.StatusCode == HttpStatusCode.InternalServerError)
+                {
+
+                    MessageBox.Show("Username atau Password salah.");
+                    throw new Exception("Terjadi kesalahan ketika melakukan request ke API");
+
+                }
+                else if (responseMassage.StatusCode == HttpStatusCode.OK)
+                {
+                    new DashBoard().Show();
+                    Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+ 
         }
     }
 }
