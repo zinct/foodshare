@@ -19,7 +19,7 @@ namespace GUI
 
         private void label3_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private async void AddButton_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace GUI
                 LoginRequest body = new LoginRequest { Username = username, Password = password };
                 HttpResponseMessage responseMassage = await api.PostAsJson("/auth/login", body);
 
-                Console.WriteLine(responseMassage.ToString());  
+                Console.WriteLine(responseMassage.ToString());
 
                 if (responseMassage.StatusCode == HttpStatusCode.InternalServerError)
                 {
@@ -53,7 +53,12 @@ namespace GUI
             {
                 throw;
             }
- 
+
+        }
+
+        private void PageLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
