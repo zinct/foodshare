@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using FoodShareAPI.Requests;
-using FoodShareAPI.Controllers;
-using Microsoft.VisualBasic.Logging;
-using FoodShareCore.API;
-using Newtonsoft.Json;
-using GUI.Models;
-using System.Xml.Linq;
+﻿using FoodShareCore.API;
+using GUI.Models.Requests;
 using System.Net;
 
 namespace GUI

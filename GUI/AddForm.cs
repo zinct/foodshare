@@ -1,19 +1,6 @@
-﻿using FoodShareAPI.Models;
-using FoodShareCore.API;
+﻿using FoodShareCore.API;
 using FoodShareCore.Utilities;
 using GUI.Models;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 
 namespace GUI
 {
